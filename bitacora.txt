@@ -1,0 +1,60 @@
+========================================
+BITÁCORA DE PROYECTO: RUEDA LIBRE
+========================================
+
+URL completa: http://127.0.0.1:5500/rueda-libre/index.html
+Protocolo: HTTP (HTTP/1.1)
+Host: 127.0.0.1
+Puerto: 5500
+Ruta: /index.html
+Request Method: GET 
+Código de estado observado: 304 Not Modified
+
+http://127.0.0.1:5500/rueda-libre/promociones.html
+
+Cannot GET /rueda-libre/promociones.html
+
+Status
+404
+Not Found
+
+FUNCIONES DE HTML, CSS Y JAVASCRIPT
+
+En el desarrollo del sitio web de Rueda Libre, cada tecnología
+cumplirá una función específica.
+
+HTML (HyperText Markup Language):
+HTML se utilizará para crear la estructura y el contenido
+de las páginas web. Permitirá organizar los títulos, párrafos,
+imágenes, enlaces y formularios.
+
+Ejemplo:
+Crear una página que muestre el nombre de Rueda Libre,
+una imagen de una bicicleta y una descripción de los servicios
+de alquiler de bicicletas en Medellín.
+
+2. CSS (Cascading Style Sheets):
+CSS se utilizará para definir la apariencia visual del sitio web.
+Permitirá establecer colores, tipos de letra, tamaños,
+márgenes y la distribución de los elementos en la página.
+
+Ejemplo:
+Diseñar la página de Rueda Libre con colores relacionados
+con la naturaleza, botones atractivos y un diseño adaptable
+a celulares y computadores.
+
+3. JavaScript:
+JavaScript se utilizará para agregar interactividad y
+comportamientos dinámicos al sitio web.
+
+Ejemplo:
+Crear una función que permita al usuario seleccionar el tipo
+de bicicleta que desea alquilar y calcular el precio según
+la cantidad de horas seleccionadas.
+
+Conclusión:
+HTML define la estructura y el contenido, CSS controla
+la apariencia visual y JavaScript agrega interactividad.
+La combinación de estas tres tecnologías permitirá crear
+un sitio web funcional, atractivo y fácil de utilizar
+para los clientes de Rueda Libre.
