@@ -58,3 +58,21 @@ la apariencia visual y JavaScript agrega interactividad.
 La combinación de estas tres tecnologías permitirá crear
 un sitio web funcional, atractivo y fácil de utilizar
 para los clientes de Rueda Libre.
+
+
+
+--------------
+
+Matriz de Ruta  
+Archivo de origen	    Archivo de destino	    Ruta escrita en el href
+index.html	            index.html	            index.html
+index.html	            tarifas.html	        paginas/tarifas.html
+index.html	            reservas.html	        paginas/reservas.html
+paginas/tarifas.html	index.html	            ../index.html
+paginas/tarifas.html	tarifas.html	        tarifas.html
+paginas/tarifas.html	reservas.html	        reservas.html
+paginas/reservas.html	index.html	            ../index.html
+paginas/reservas.html	tarifas.html	        tarifas.html
+paginas/reservas.html	reservas.html	        reservas.html
+
+
