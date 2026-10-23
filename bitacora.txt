@@ -87,3 +87,28 @@ DIA 2---------
 ├───────────────────────────────────────────────┤
 │ <footer> (Pie de página / Copyright)          │
 └───────────────────────────────────────────────┘
+CORRECCIONES TÉCNICAS APLICADAS EN RESERVAS.HTML
+--------------------------------------------------
+1. Corrección de sintaxis en atributo `minlength`: 
+   - Hallazgo: Se tenía escrito por error tipográfico `minlenght="3"` en el campo de nombre.
+   - Corrección: Se ajustó al nombre de atributo estándar de HTML5 `minlength="3"`.
+
+2. Actualización de validación por patrón (Regex) para Celular: 
+   - Hallazgo: El patrón anterior permitía cualquier número de 6 a 10 dígitos sin restricción inicial.
+   - Corrección: Se actualizó al patrón estricto `pattern="^3[0-9]{9}$"` para exigir exactamente 10 dígitos y que comience obligatoriamente por el número 3, según las reglas del negocio.
+
+3. Coherencia en opciones de tipo radio: 
+   - Hallazgo: El segundo botón de opción tenía valores cruzados ("montaña" vs texto de bicicleta eléctrica).
+   - Corrección: Se estandarizó el `id="electrica"` y el `value="electrica"` para mantener concordancia absoluta con la etiqueta visible.
+
+4. Cierre de etiquetas estructurales (`<select>`): 
+   - Hallazgo: El menú desplegable del punto de recogida no tenía su respectiva etiqueta de cierre `</select>`, lo que alteraba la renderización del resto del formulario.
+   - Corrección: Se incorporó el cierre correcto de la etiqueta y de sus opciones internas.
+
+5. Corrección de sintaxis en el área de texto (`<textarea>`): 
+   - Hallazgo: El atributo de longitud máxima estaba mal escrito y separado fuera de la etiqueta (`max length ="300"`).
+   - Corrección: Se integró correctamente el atributo válido de HTML5 `maxlength="300"` dentro de la etiqueta de apertura del `<textarea>`.
+
+6. Distribución visual por bloques (`<div>`): 
+   - Hallazgo: Algunos elementos como el menú de selección y los términos y condiciones se alineaban horizontalmente por defecto.
+   - Corrección: Se envolvieron de manera independiente en contenedores `<div>` para forzar un salto de línea vertical limpio y ordenado.

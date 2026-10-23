@@ -10,11 +10,13 @@
 <body>
     <main>
         <h1>Reserva tu bicicleta</h1>
+        <nav>
          <ul>
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="tarifas.html">Tarifas y recorridos</a></li>
         <li><a href="reservas.html">Reservas</a></li>
-    </ul>
+        </ul>
+        </nav>
     <section> 
         <h2>Formulario de reserva</h2>
         <p>Completa el siguiente formulario para realizar tu reserva.</p>
@@ -26,7 +28,7 @@
 
             <div> 
                 <label for="nombre">Nombre completo:</label> 
-                <input type="text" id="nombre" name="nombre" required minlenght ="3">
+                <input type="text" id="nombre" name="nombre" required minlength ="3">
             </div>
             <div>
                 <label for="documento">Documento de identidad:</label>
@@ -41,7 +43,7 @@
             <div>
                 <label for="telefono">Teléfono:</label>
                 <input type="tel" id="telefono" name="telefono" required pattern 
-                ="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos">
+                ="^3[0-9]{9}$" title="Solo números, entre 6 y 10 dígitos">
             </div>
 
         </fieldset>
@@ -56,9 +58,9 @@
                 <label for="urbana">Bicicleta urbana</label>
             </div>
             <div>
-                <input type="radio" id="montaña" name="tipo_bici"
-                 value="montaña">
-                <label for="montaña">Bicicleta eléctrica</label>
+                <input type="radio" id="electrica" name="tipo_bici"
+                 value="electrica">
+                <label for="electrica">Bicicleta eléctrica</label>
             </div>
             <div>
                 <label for="cantidad">Cantidad de bicicletas:</label>
@@ -87,8 +89,9 @@
     
     <div>
         <label for="comentarios">Comentarios adicionales:</label><br>
-        <textarea id="comentarios" name="comentarios" rows="3" cols="30"></textarea
-            max length ="300">
+        <textarea id="comentarios" name="comentarios" rows="3" 
+        cols="30" max length ="300"></textarea>
+    
     </div>
 
     <div>
