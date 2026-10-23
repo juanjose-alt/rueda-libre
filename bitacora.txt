@@ -112,3 +112,15 @@ CORRECCIONES TÉCNICAS APLICADAS EN RESERVAS.HTML
 6. Distribución visual por bloques (`<div>`): 
    - Hallazgo: Algunos elementos como el menú de selección y los términos y condiciones se alineaban horizontalmente por defecto.
    - Corrección: Se envolvieron de manera independiente en contenedores `<div>` para forzar un salto de línea vertical limpio y ordenado.
+
+
+   Combinación evaluada,Relación de contraste,Clasificación oficial
+Blanco sobre Verde Ruta (#1E7A4F),~4.8:1,Apta para texto normal
+Blanco sobre Naranja Pedal (#F39A2B),~2.3:1,No apta (el contraste es muy bajo)
+Azul Noche (#14213D) sobre Naranja Pedal (#F39A2B),~5.2:1,Apta para texto normal
+Azul Noche (#14213D) sobre Crema (#FAF6EF),~14.5:1,Apta para texto normal (excelente legibilidad)
+Gris Asfalto (#5B6470) sobre Crema (#FAF6EF),~4.6:1,Apta para texto normal
+Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF),~3.2:1,Apta solo para texto grande / títulos
+Naranja Pedal (#F39A2B) sobre Crema (#FAF6EF),~2.1:1,No apta
+Blanco sobre Azul Noche (#14213D),~15.0:1,Apta para texto normal
+
