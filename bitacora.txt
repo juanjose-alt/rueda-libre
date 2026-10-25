@@ -136,4 +136,16 @@ Blanco sobre Azul Noche (#14213D),~15.0:1,Apta para texto normal
     que los elementos hijos no heredan los márgenes ni el fondo del contenedor principal, 
     sino que manejan sus propios valores por defecto del navegador o reglas específicas.
 
-    
+    6. AUDITORÍA DE ESPECIFICIDAD Y CORRECCIÓN (MINI-RETO 10)
+--------------------------------------------------
+- Conflicto detectado: La regla `.activo` no aplicaba el color verde a la página actual.
+- Análisis de especificidad en DevTools:
+  * Selector `#menu a` -> 1 ID, 1 Elemento (Especificidad: 101).
+  * Selector `.activo` -> 1 Clase (Especificidad: 10).
+- Causa del problema: El selector `#menu a` tenía mayor especificidad (101) que la clase `.activo` 
+(10), por lo que el navegador ignoraba la regla de la clase.
+- Solución aplicada: Se corrigió combinando el ID, la etiqueta y la clase en un selector de mayor
+ especificidad (`#menu a.activo`, puntuación 111) sin recurrir a `!important` ni a estilos en línea.
+- Accesibilidad de enfoque: Se implementaron estados `:focus` y `:hover` claros con contornos visibles
+ (outline) para garantizar la navegación por teclado con la tecla Tab cumpliendo con los contrastes
+  WCAG.
