@@ -124,3 +124,16 @@ Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF),~3.2:1,Apta solo para texto grande / 
 Naranja Pedal (#F39A2B) sobre Crema (#FAF6EF),~2.1:1,No apta
 Blanco sobre Azul Noche (#14213D),~15.0:1,Apta para texto normal
 
+
+5. VERIFICACIÓN DE HERENCIA EN CSS (RETO 3)
+--------------------------------------------------
+- Propiedad que SÍ se hereda: 
+  * `color` (o `font-family`). Verificado en DevTools (Computed) en los párrafos <p>, 
+    los cuales heredan automáticamente el color Azul Noche (#14213D) y la fuente Open Sans 
+    definidos previamente en el elemento padre <body>.
+- Propiedad que NO se hereda: 
+  * `margin` (o `background-color`). Verificado en DevTools (Computed), donde se observa 
+    que los elementos hijos no heredan los márgenes ni el fondo del contenedor principal, 
+    sino que manejan sus propios valores por defecto del navegador o reglas específicas.
+
+    

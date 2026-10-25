@@ -1,0 +1,40 @@
+/* ========================================== */
+/* VARIABLES GLOBALES Y PALETA DE MARCA       */
+/* ========================================== */
+:root {
+    /* 1. Colores oficiales de la marca */ 
+    --color-verde: #1E7A4F;
+    --color-naranja: #F39A2B;
+    --color-azul: #14213D;
+    --color-crema: #FAF6EF;
+    --color-gris: #5B6470;
+
+    /* 2. Tipografías con fuentes de respaldo */
+    --font-titulo: 'Montserrat', sans-serif;
+    --font-texto: 'Open Sans', sans-serif;
+
+    /* 3. Escala de espaciado en rem */
+    --espacio-sm: 0.5rem;   /* 8px aprox */
+    --espacio-md: 1rem;     /* 16px aprox */
+    --espacio-lg: 2rem;     /* 32px aprox */
+} 
+
+/* ========================================== */
+/* ESTILOS BASE Y HERENCIA                    */
+/* ========================================== */
+
+body {
+    background-color: var(--color-crema);
+    color: var(--color-azul);
+    font-family: var(--font-texto);
+    margin: 0;
+    padding: var(--espacio-md);
+    line-height: 1.6;
+}
+
+/* Selector agrupado para aplicar la fuente de títulos a todos los encabezados */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titulo);
+    color: var(--color-azul);
+}
+
