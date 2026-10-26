@@ -1,5 +1,15 @@
+/*1. Variables Globales y Configuración Raíz (:root, Selector Universal)
 
-/* ========================================== */
+        :root: Pseudo-clase que representa la raíz del documento (<html>). Se usa para definir variables personalizadas (propiedades con --) que guardan colores, tipografías y espaciados reutilizables.
+
+        Selector universal (*) y pseudo-elementos (*::before, *::after): Aplica estilos a absolutamente todos los elementos de la página.
+
+        box-sizing: border-box: Modelo de caja que incluye el relleno (padding) y los bordes dentro del ancho y alto total, evitando que las cajas se desborden.
+
+        body: Define los estilos globales de la página (color de fondo, color de texto, tipografía, márgenes y un padding-bottom estratégico para que el botón flotante de WhatsApp no tape el contenido final).
+
+        Selector agrupado (h1, h2, h3, h4, h5, h6): Aplica la tipografía de títulos y color a todos los encabezados de forma unificada.*/
+        /* ========================================== */
 /* 1. VARIABLES Y CONFIGURACIÓN GLOBAL        */
 /* ========================================== */
 :root {
@@ -41,8 +51,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-azul);
 }
 
+/*2. Layout y Estructura General (header, main, footer)
 
-/* ========================================== */
+        Selector múltiple (header, main, footer): Agrupa los contenedores principales de la página para limitar su ancho máximo (max-width: 75rem) y centrarlos automáticamente en la pantalla con márgenes laterales automáticos (margin-left: auto; margin-right: auto;).
+
+        header: Añade un espacio superior e inferior interno específico (padding) para separar el encabezado.*/
+        /* ========================================== */
 /* 2. LAYOUT (Estructura general)             */
 /* ========================================== */
 header, 
@@ -60,8 +74,20 @@ header {
     padding-bottom: var(--espacio-md);
 }
 
+/*3. Navegación y Encabezado (.logo-marca, nav ul, #menu a)
 
-/* ========================================== */
+        .logo-marca: Clase que utiliza Flexbox (display: flex) para apilar el título y el logo en columna (flex-direction: column) y centrarlos horizontalmente (align-items: center).
+
+        .img-logo: Fija el ancho del logotipo a 80px manteniendo su proporción con height: auto.
+
+        nav ul: Elimina las viñetas predeterminadas (list-style: none), quita márgenes/rellenos y organiza los elementos en fila horizontal centrados mediante display: flex y justify-content: center.
+
+        Selector por ID y etiqueta (#menu a): Estiliza los enlaces dentro del menú aplicando transiciones suaves de color.
+
+        Selector de clase combinada (#menu a.activo): Da un estilo visual diferenciado (texto verde y borde inferior) al enlace de la página actual.
+
+        Pseudo-clases de interacción (:hover y :focus): Controlan el cambio de color al pasar el cursor o al navegar mediante la tecla Tab del teclado (accesibilidad).
+        /* ========================================== */
 /* 3. NAVEGACIÓN Y ENCABEZADO                 */
 /* ========================================== */
 
@@ -127,7 +153,17 @@ nav ul {
 }
 
 
-/* ========================================== */
+/*4. Componentes: Tarjetas, Etiquetas y Botón Flotante (.tarjeta-servicio, .tarjeta-destacada, .etiqueta-nuevo, .btn-whatsapp)
+
+        .tarjeta-servicio: Estiliza las tarjetas de servicios como contenedores con fondo blanco, bordes redondeados y una sombra suave (box-shadow).
+
+        .tarjeta-destacada: Utiliza position: relative para convertirse en el contenedor ancla de elementos posicionados en su interior.
+
+        .etiqueta-nuevo: Utiliza position: absolute para fijarse exactamente en la esquina superior derecha (top y right) de la tarjeta destacada sin alterar el flujo del contenido.
+
+        .btn-whatsapp: Utiliza position: fixed junto con bottom y right para mantenerse flotando permanentemente en la esquina inferior derecha de la pantalla al hacer scroll, con un índice de capas elevado (z-index: 1000) para garantizar que siempre esté por encima de todo.
+
+        /* ========================================== */
 /* 4. COMPONENTES (Tarjetas, Etiquetas, WhatsApp)*/
 /* ========================================== */
 
@@ -190,7 +226,19 @@ nav ul {
     outline: 3px solid var(--color-naranja);
 }
 
+/*5. Tablas y Formularios (table, input, select, textarea, .btn-cta)
 
+        table: Define un ancho del 100% y colapsa los bordes dobles de las celdas con border-collapse: collapse.
+
+        th: Estiliza las celdas de encabezado con el color institucional verde y texto blanco.
+
+        Selector agrupado (.grupo-formulario, form div): Organiza los márgenes inferiores de cada bloque de formulario.
+
+        Selector de atributos múltiples (input[type="text"], etc.): Estiliza de forma uniforme los campos de entrada estirándolos al 100% de su contenedor.
+
+        .btn-cta: Define el diseño reutilizable para los botones de llamada a la acción en todo el sitio web.
+
+        Pseudo-clases de foco (input:focus, etc.): Añaden un borde y contorno resaltado al interactuar con los campos mediante teclado.*/
 /* ========================================== */
 /* 5. TABLAS Y FORMULARIOS                    */
 /* ========================================== */
@@ -283,3 +331,5 @@ textarea:focus {
     background-color: #FFFFFF;
     border-color: var(--color-verde);
 }
+
+

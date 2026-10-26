@@ -1,4 +1,23 @@
-<!DOCTYPE html>
+<!--1. Configuración de la Cabecera (<!DOCTYPE>, <html>, <head>, <meta>, <link>, <title>)
+
+        <!DOCTYPE html>: Define que el documento web utiliza la especificación moderna de HTML5.
+
+        <html lang="es">: Etiqueta raíz que envuelve todo el documento y declara el idioma español.
+
+        <head>: Contenedor de metadatos invisibles para el usuario pero necesarios para el navegador.
+
+        <link rel="preconnect">: Realiza una conexión previa con los servidores de Google Fonts para acelerar la carga.
+
+        <link href="..." rel="stylesheet">: Importa las fuentes tipográficas de Google y vincula la hoja de estilos global ubicada en ../css/styles.css.
+
+        <meta charset="UTF-8">: Configura la codificación de caracteres para mostrar correctamente tildes y eñes.
+
+        <meta name="viewport" ...>: Establece la escala adaptable para pantallas de dispositivos móviles (diseño responsivo).
+
+        <link rel="icon" ...>: Carga el icono en miniatura (favicon) para la pestaña del navegador.
+
+        <title>: Muestra el título descriptivo de la pestaña actual.-->
+            <!DOCTYPE html>
 <html lang="es">
 <head>
 <!-- Google Fonts preconnect -->
@@ -14,7 +33,28 @@
     <title>Tarifas y recorridos</title>
 
 </head>
-<body>
+
+
+<!--2. Cuerpo, Cabecera y Menú de Navegación (<body>, <div>, <header>, <h1>, <img>, <nav>, <ul>, <li>, <a>, <br>)
+
+        <body>: Contiene todos los elementos visuales e interactivos de la página web.
+
+        <div class="logo-marca">: Contenedor genérico en bloque para agrupar y posicionar elementos gráficos y textuales.
+
+        <header>: Etiqueta semántica destinada a la cabecera principal del documento.
+
+        <h1>: Encabezado principal de nivel 1 que describe el tema de la página.
+
+        <img src="..." alt="...">: Inserta una imagen con su ruta y su texto alternativo obligatorio para accesibilidad.
+
+        <nav>: Sección semántica dedicada exclusivamente a la barra de navegación del sitio.
+
+        <ul> y <li>: Estructuran una lista desordenada de elementos para las opciones del menú.
+
+        <a href="...">: Hipervínculo para navegar entre páginas (nota el uso de ../ para salir a la carpeta raíz).
+
+        <br>: Genera un salto de línea simple dentro del flujo del texto.-->
+        <body>
     <div class="logo-marca">
     <header>
         
@@ -33,7 +73,28 @@
 
     </header>
 
-    <main> 
+<!--3. Contenido Principal y Tablas de Datos (<main>, <section>, <table>, <caption>, <thead>, <tbody>, <tr>, <th>, <td>, <a>)
+
+        <main>: Etiqueta semántica que engloba el contenido central y exclusivo de la página.
+
+        <section>: Define secciones temáticas o bloques de contenido independientes.
+
+        <table border="2">: Crea una tabla de datos estructurada (con un borde visual básico de prueba).
+
+        <caption>: Proporciona un título o descripción oficial para la tabla.
+
+        <thead>: Agrupa las filas de encabezado de la tabla.
+
+        <tbody>: Agrupa el cuerpo con los datos principales de la tabla.
+
+        <tr>: Define una fila horizontal dentro de la tabla.
+
+        <th scope="col"> o <th scope="row">: Celda de encabezado (columna o fila), clave para la accesibilidad de lectores de pantalla.
+
+        <td>: Celda estándar de datos tabulares.
+
+        <a href="..." class="btn-cta">: Enlace estilizado como botón de llamada a la acción (Call to Action).-->
+            <main> 
         <section>
             <table border="2">
                 <caption>Precios y recorridos</caption>
@@ -109,7 +170,13 @@
                         </tbody>
                 </table>
         </section>
-        <aside>
+
+<!--4. Información Complementaria (<aside>, <strong>)
+
+        <aside>: Etiqueta semántica para contenido secundario, barras laterales o notas complementarias relacionadas con el tema principal.
+
+        <strong>: Etiqueta de texto en negrita que aporta peso e importancia semántica a palabras clave.-->
+            <aside>
             <h2>Información adicional</h2>
             <p>Todas las tarifas incluyen <strong>casco y candado</strong>. 
                 Los recorridos 
@@ -118,6 +185,17 @@
                 cómoda, agua, protector solar y documento de identidad.</p>
             </aside>
     </main>
+
+
+<!--5. Pie de Página y Botón Flotante (<footer>, Atributos de Enlace)
+
+        <footer>: Etiqueta semántica para el pie de página institucional del sitio web.
+
+        &copy;: Entidad de caracteres especiales para renderizar el símbolo de derechos de autor (©).
+
+        target="_blank": Atributo de enlace que abre la URL externa en una pestaña nueva del navegador.
+
+        rel="noopener noreferrer": Medida de seguridad obligatoria al abrir enlaces en pestañas nuevas para proteger el rendimiento y privacidad de la página.-->
         <footer>
     <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">
         ruedalibre@example.com</a></p>

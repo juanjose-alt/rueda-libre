@@ -1,3 +1,20 @@
+<!--1. Configuración inicial y metadatos (<!DOCTYPE>, <html>, <head>)
+
+        <!DOCTYPE html>: Le indica al navegador que el documento utiliza HTML5 moderno.
+
+        <html lang="es">: Etiqueta raíz que encierra toda la página web y define el idioma español (es).
+
+        <head>: Contiene la "meta-información" invisible para el usuario (configuración, título de pestaña, fuentes e iconos).
+
+        <meta charset="UTF-8">: Define la codificación de caracteres para soportar tildes y eñes correctamente.
+
+        <meta name="viewport" ...>: Configura la escala para que la página sea responsiva en dispositivos móviles.
+
+        <link rel="icon" ...>: Define el favicon (icono de la pestaña).
+
+        <title>: Muestra el título de la página en la pestaña del navegador.
+
+        <link rel="preconnect"> y <link rel="stylesheet">: Conectan fuentes externas de Google Fonts y vinculan nuestra hoja de estilos CSS (css/styles.css). -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,10 +26,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Importación de Montserrat (700) y Open Sans (400, 600) -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap"
+ rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+
+<!--2. Cabecera y Navegación (<body>, <header>, <div>, <h1>, <nav>, <ul>, <li>, <a>)
+
+        <body>: Contiene todo el contenido visible de la página web.
+
+        <header>: Etiqueta semántica para la cabecera principal del sitio.
+
+        <div>: Contenedor genérico en bloque utilizado aquí (.logo-marca) para agrupar y posicionar el título y el logo.
+
+        <h1>: Encabezado principal de nivel 1 (el título más importante de la página).
+
+        <img src="..." alt="...">: Inserta una imagen con su ruta y su texto alternativo obligatorio (alt) para accesibilidad.
+
+        <nav>: Etiqueta semántica destinada específicamente a las barras de navegación.
+
+        <ul> y <li>: Lista desordenada y elementos de lista para estructurar los ítems del menú.
+
+        <a href="...">: Etiqueta de hipervínculo (ancla) para navegar a otras páginas o secciones.-->
+
+            <body>
     <header> 
         <div class="logo-marca">
     <h1>Rueda Libre</h1>
@@ -30,8 +67,26 @@
 
   
     </header>
-    
-    <main>
+
+    <!--3. Contenido Principal (<main>, <section>, <article>, <p>, <strong>, <em>, <ol>)
+
+        <main>: Etiqueta semántica que envuelve el contenido central y exclusivo de la página.
+
+        <section>: Define secciones temáticas o bloques de contenido agrupados.
+
+        <h2>: Encabezado de nivel 2 para los títulos de cada sección.
+
+        <p>: Define un párrafo de texto.
+
+        <article>: Etiqueta semántica para contenidos independientes o autónomos (ideal para las tarjetas de servicios).
+
+        <strong>: Etiqueta de texto en negrita con peso semántico (importancia).
+
+        <em>: Etiqueta de texto en cursiva con énfasis semántico.
+
+        <ol>: Lista ordenada (numérica), utilizada en los pasos de alquiler.-->
+        
+        <main>
         <section>
         <h2> ¿Quiénes somos?
         </h2>
@@ -118,6 +173,17 @@
                
     </section>
     </main>
+
+    <!--4. Pie de página y Botón Flotante (<footer>, atributos target y rel)
+
+        <footer>: Etiqueta semántica para el pie de página.
+
+        &copy;: Entidad HTML para mostrar el símbolo de derechos de autor (©).
+
+        target="_blank": Atributo de enlace (<a>) que abre la URL en una nueva pestaña del navegador.
+
+        rel="noopener noreferrer": Medida de seguridad obligatoria cuando se usa target="_blank" para prevenir vulnerabilidades de rendimiento y privacidad.-->
+
         <footer>
     <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">
         ruedalibre@example.com</a></p>

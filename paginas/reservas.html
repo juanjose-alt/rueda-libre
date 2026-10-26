@@ -1,6 +1,25 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
+<!--1. Configuración de la Cabecera (<!DOCTYPE>, <html>, <head>, <meta>, <link>, <title>)
+
+        <!DOCTYPE html>: Define que el documento utiliza el estándar moderno de HTML5.
+
+        <html lang="es">: Etiqueta raíz que envuelve todo el sitio web y declara el idioma español.
+
+        <head>: Bloque contenedor de metadatos invisibles para el usuario pero esenciales para el navegador.
+
+        <link rel="preconnect">: Optimiza la conexión previa con los servidores de fuentes de Google.
+
+        <link href="..." rel="stylesheet">: Importa las familias tipográficas de Google Fonts y vincula la hoja de estilos global ubicada en ../css/styles.css.
+
+        <meta charset="UTF-8">: Configura la codificación de caracteres para el correcto uso de tildes y eñes.
+
+        <meta name="viewport" ...>: Establece la escala adaptable para pantallas móviles (diseño responsivo).
+
+        <link rel="icon" ...>: Carga el icono en miniatura (favicon) de la pestaña del navegador.
+
+        <title>: Muestra el título descriptivo de la pestaña actual.-->
+            <!DOCTYPE html>
+    <html lang="es">
+<head   head>
     <!-- Google Fonts preconnect -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +33,22 @@
     <title>Reserva tu bicicleta | Rueda Libre</title>
     
 </head>
-<body>
+
+<!--2. Cuerpo, Título Principal y Menú de Navegación (<body>, <main>, <h1>, <nav>, <ul>, <li>, <a>)
+
+        <body>: Contiene todos los elementos visuales e interactivos de la página.
+
+        <main>: Etiqueta semántica para el contenido central y principal del documento.
+
+        <h1>: Encabezado principal de nivel 1 que define el propósito de la página.
+
+        <nav>: Sección semántica dedicada a la barra de navegación del sitio.
+
+        <ul> y <li>: Estructuran una lista desordenada de elementos para los enlaces del menú.
+
+        <a href="...">: Hipervínculo para navegar entre las páginas (nota el uso de ../ para salir a la carpeta raíz).-->
+
+            <body>
     <main>
         <h1>Reserva tu bicicleta</h1>
         <nav>
@@ -24,7 +58,32 @@
         <li><a href="reservas.html" class="activo">Reservas</a></li>
         </ul>
         </nav>
-    <section> 
+<!--3. Contenedor de Sección y Formulario (<section>, <form>, <fieldset>, <legend>, <div class="grupo-formulario">, <label>, <input>, <select>, <option>, <textarea>, <button>)
+
+        <section>: Define una sección temática dentro del contenido principal.
+
+        <h2>: Encabezado de nivel 2 para subtitular la sección.
+
+        <p>: Define un párrafo de texto explicativo.
+
+        <form action="#" method="post">: Contenedor interactivo para la recolección de datos del usuario, configurado con el método HTTP de envío post.
+
+        <fieldset>: Agrupa lógicamente los campos relacionados dentro del formulario.
+
+        <legend>: Proporciona un título o leyenda descriptiva para cada grupo de campos (<fieldset>).
+
+        <div class="grupo-formulario">: Contenedor genérico para estructurar y separar visualmente cada campo con márgenes.
+
+        <label for="...">: Etiqueta de texto descriptiva asociada a un campo de formulario específico mediante su atributo for.
+
+        <input type="..." id="..." name="..." required>: Elemento interactivo principal de entrada de datos (soporta tipos como text, email, tel, radio, number, date, checkbox), aplicando validaciones nativas como required, minlength, maxlength o patrones pattern.
+
+        <select> y <option>: Crean un menú desplegable con opciones seleccionables de valor (value).
+
+        <textarea>: Campo de entrada de texto multilínea para comentarios largos, controlado por filas (rows), columnas (cols) y límite de caracteres (maxlength).
+
+        <button type="submit">: Botón interactivo para enviar la información del formulario.-->
+            <section> 
         <h2>Formulario de reserva</h2>
         <p>Completa el siguiente formulario para realizar tu reserva.</p>
 
@@ -112,8 +171,16 @@
 
                 </form>
             </section>
+<!--4. Información Complementaria y Horarios (<aside>, <dl>, <dt>, <dd>)
 
-        <p>¿Tienes dudas? Escríbenos a 
+        <aside>: Etiqueta semántica para contenido complementario o barras laterales (en este caso, los horarios de atención).
+
+        <dl>: Lista de descripciones (Definition List), ideal para parejas de términos y definiciones.
+
+        <dt>: Término o asunto a definir (ej. los días de la semana).
+
+        <dd>: Descripción o valor asociado al término anterior (ej. las horas de atención).-->
+            <p>¿Tienes dudas? Escríbenos a 
             nuestro correo electrónico: <a href="mailto:ruedalibre@example.com"
             >ruedalibre@example.com</a></p>
           <aside>
@@ -130,7 +197,16 @@
             </dl>
           </aside>
     </main>
-    <footer>
+<!--5. Pie de Página y Enlace Flotante (<footer>, Atributos de Enlace)
+
+        <footer>: Etiqueta semántica para el pie de página institucional del sitio web.
+
+        &copy;: Entidad de caracteres especiales para mostrar el símbolo de copyright (©).
+
+        target="_blank": Atributo que abre el enlace externo en una pestaña nueva del navegador.
+
+        rel="noopener noreferrer": Medida de seguridad obligatoria para prevenir vulnerabilidades en pestañas nuevas.-->
+        <footer>
     <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">
         ruedalibre@example.com</a></p>
 </footer>

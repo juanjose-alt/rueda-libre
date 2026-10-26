@@ -1,165 +1,124 @@
-========================================
-BITÁCORA DE PROYECTO: RUEDA LIBRE
-========================================
+---
 
-URL completa: http://127.0.0.1:5500/rueda-libre/index.html
-Protocolo: HTTP (HTTP/1.1)
-Host: 127.0.0.1
-Puerto: 5500
-Ruta: /index.html
-Request Method: GET 
-Código de estado observado: 304 Not Modified
+# 📋 Bitácora de Proyecto: Rueda Libre
 
-http://127.0.0.1:5500/rueda-libre/promociones.html
+---
 
-Cannot GET /rueda-libre/promociones.html
+## 1. Información General y Diagnóstico
 
-Status
-404
-Not Found
-
-FUNCIONES DE HTML, CSS Y JAVASCRIPT
-
-En el desarrollo del sitio web de Rueda Libre, cada tecnología
-cumplirá una función específica.
-
-HTML (HyperText Markup Language):
-HTML se utilizará para crear la estructura y el contenido
-de las páginas web. Permitirá organizar los títulos, párrafos,
-imágenes, enlaces y formularios.
-
-Ejemplo:
-Crear una página que muestre el nombre de Rueda Libre,
-una imagen de una bicicleta y una descripción de los servicios
-de alquiler de bicicletas en Medellín.
-
-2. CSS (Cascading Style Sheets):
-CSS se utilizará para definir la apariencia visual del sitio web.
-Permitirá establecer colores, tipos de letra, tamaños,
-márgenes y la distribución de los elementos en la página.
-
-Ejemplo:
-Diseñar la página de Rueda Libre con colores relacionados
-con la naturaleza, botones atractivos y un diseño adaptable
-a celulares y computadores.
-
-3. JavaScript:
-JavaScript se utilizará para agregar interactividad y
-comportamientos dinámicos al sitio web.
-
-Ejemplo:
-Crear una función que permita al usuario seleccionar el tipo
-de bicicleta que desea alquilar y calcular el precio según
-la cantidad de horas seleccionadas.
-
-Conclusión:
-HTML define la estructura y el contenido, CSS controla
-la apariencia visual y JavaScript agrega interactividad.
-La combinación de estas tres tecnologías permitirá crear
-un sitio web funcional, atractivo y fácil de utilizar
-para los clientes de Rueda Libre.
+* **URL Base:** `[http://127.0.0.1:5500/rueda-libre/index.html](http://127.0.0.1:5500/rueda-libre/index.html)`
+* **Protocolo / Host:** HTTP/1.1 | Host: `127.0.0.1` | Puerto: `5500`
+* **Estado de Conexión:**
+* `index.html` $\rightarrow$ **304 Not Modified** (Caché actualizada).
+* `/rueda-libre/promociones.html` $\rightarrow$ **404 Not Found** (Ruta no encontrada).
 
 
 
---------------
+---
 
-Matriz de Ruta  
-Archivo de origen	    Archivo de destino	    Ruta escrita en el href
-index.html	            index.html	            index.html
-index.html	            tarifas.html	        paginas/tarifas.html
-index.html	            reservas.html	        paginas/reservas.html
-paginas/tarifas.html	index.html	            ../index.html
-paginas/tarifas.html	tarifas.html	        tarifas.html
-paginas/tarifas.html	reservas.html	        reservas.html
-paginas/reservas.html	index.html	            ../index.html
-paginas/reservas.html	tarifas.html	        tarifas.html
-paginas/reservas.html	reservas.html	        reservas.html
+## 2. Funciones de las Tecnologías Web
 
+* **HTML (HyperText Markup Language):** Define la estructura y el contenido (títulos, párrafos, imágenes, enlaces y formularios).
+* **CSS (Cascading Style Sheets):** Controla la apariencia visual (colores, tipografías, márgenes, distribución y diseño adaptable).
+* **JavaScript:** Agrega interactividad y comportamientos dinámicos (selección de bicicletas, cálculo de precios por horas).
 
-DIA 2---------
+---
+
+## 3. Matriz de Rutas y Arquitectura del Sitio
+
+### Estructura de Secciones (`<header>`, `<main>`, `<footer>`)
+
+```text
 ┌───────────────────────────────────────────────┐
 │ <header> (Nombre del negocio + <nav> menú)    │
 ├───────────────────────────────────────────────┤
 │ <main> (Contenido principal de la página)     │
-│   ├── <section> (Bloques temáticos)           │
-│   │     └── <article> (Servicios individuales)│
-│   └── <aside> (Información complementaria)    │
+│    ├── <section> (Bloques temáticos)          │
+│    │      └── <article> (Servicios individuales)│
+│    └── <aside> (Información complementaria)   │
 ├───────────────────────────────────────────────┤
 │ <footer> (Pie de página / Copyright)          │
 └───────────────────────────────────────────────┘
-CORRECCIONES TÉCNICAS APLICADAS EN RESERVAS.HTML
---------------------------------------------------
-1. Corrección de sintaxis en atributo `minlength`: 
-   - Hallazgo: Se tenía escrito por error tipográfico `minlenght="3"` en el campo de nombre.
-   - Corrección: Se ajustó al nombre de atributo estándar de HTML5 `minlength="3"`.
 
-2. Actualización de validación por patrón (Regex) para Celular: 
-   - Hallazgo: El patrón anterior permitía cualquier número de 6 a 10 dígitos sin restricción inicial.
-   - Corrección: Se actualizó al patrón estricto `pattern="^3[0-9]{9}$"` para exigir exactamente 10 dígitos y que comience obligatoriamente por el número 3, según las reglas del negocio.
+```
 
-3. Coherencia en opciones de tipo radio: 
-   - Hallazgo: El segundo botón de opción tenía valores cruzados ("montaña" vs texto de bicicleta eléctrica).
-   - Corrección: Se estandarizó el `id="electrica"` y el `value="electrica"` para mantener concordancia absoluta con la etiqueta visible.
+### Tabla de Enlaces y Rutas Relativas (`href`)
 
-4. Cierre de etiquetas estructurales (`<select>`): 
-   - Hallazgo: El menú desplegable del punto de recogida no tenía su respectiva etiqueta de cierre `</select>`, lo que alteraba la renderización del resto del formulario.
-   - Corrección: Se incorporó el cierre correcto de la etiqueta y de sus opciones internas.
+| Archivo de Origen | Archivo de Destino | Ruta escrita en el `href` |
+| --- | --- | --- |
+| `index.html` | `index.html` | `index.html` |
+| `index.html` | `tarifas.html` | `paginas/tarifas.html` |
+| `index.html` | `reservas.html` | `paginas/reservas.html` |
+| `paginas/tarifas.html` | `index.html` | `../index.html` |
+| `paginas/tarifas.html` | `tarifas.html` | `tarifas.html` |
+| `paginas/tarifas.html` | `reservas.html` | `reservas.html` |
+| `paginas/reservas.html` | `index.html` | `../index.html` |
+| `paginas/reservas.html` | `tarifas.html` | `tarifas.html` |
+| `paginas/reservas.html` | `reservas.html` | `reservas.html` |
 
-5. Corrección de sintaxis en el área de texto (`<textarea>`): 
-   - Hallazgo: El atributo de longitud máxima estaba mal escrito y separado fuera de la etiqueta (`max length ="300"`).
-   - Corrección: Se integró correctamente el atributo válido de HTML5 `maxlength="300"` dentro de la etiqueta de apertura del `<textarea>`.
+---
 
-6. Distribución visual por bloques (`<div>`): 
-   - Hallazgo: Algunos elementos como el menú de selección y los términos y condiciones se alineaban horizontalmente por defecto.
-   - Corrección: Se envolvieron de manera independiente en contenedores `<div>` para forzar un salto de línea vertical limpio y ordenado.
+## 4. Correcciones Técnicas en `reservas.html`
 
+1. **Atributo `minlength`:** Corrección del error tipográfico `minlenght="3"` al estándar HTML5 `minlength="3"`.
+2. **Validación de Celular (Regex):** Actualización del patrón a `pattern="^3[0-9]{9}$"` para exigir exactamente 10 dígitos iniciando en el número 3.
+3. **Opciones de Radio:** Estandarización de `id="electrica"` y `value="electrica"` para concordancia con la etiqueta.
+4. **Cierre de Etiquetas:** Incorporación del cierre faltante `</select>` en el punto de recogida.
+5. **Área de Texto:** Corrección del atributo `maxlength="300"` dentro de la etiqueta `<textarea>`.
+6. **Distribución de Bloques:** Uso de contenedores `<div>` independientes para forzar un salto de línea vertical limpio en elementos de selección y términos.
 
-   Combinación evaluada,Relación de contraste,Clasificación oficial
-Blanco sobre Verde Ruta (#1E7A4F),~4.8:1,Apta para texto normal
-Blanco sobre Naranja Pedal (#F39A2B),~2.3:1,No apta (el contraste es muy bajo)
-Azul Noche (#14213D) sobre Naranja Pedal (#F39A2B),~5.2:1,Apta para texto normal
-Azul Noche (#14213D) sobre Crema (#FAF6EF),~14.5:1,Apta para texto normal (excelente legibilidad)
-Gris Asfalto (#5B6470) sobre Crema (#FAF6EF),~4.6:1,Apta para texto normal
-Verde Ruta (#1E7A4F) sobre Crema (#FAF6EF),~3.2:1,Apta solo para texto grande / títulos
-Naranja Pedal (#F39A2B) sobre Crema (#FAF6EF),~2.1:1,No apta
-Blanco sobre Azul Noche (#14213D),~15.0:1,Apta para texto normal
+---
 
+## 5. Auditoría de Accesibilidad y Contraste de Colores
 
-5. VERIFICACIÓN DE HERENCIA EN CSS (RETO 3)
---------------------------------------------------
-- Propiedad que SÍ se hereda: 
-  * `color` (o `font-family`). Verificado en DevTools (Computed) en los párrafos <p>, 
-    los cuales heredan automáticamente el color Azul Noche (#14213D) y la fuente Open Sans 
-    definidos previamente en el elemento padre <body>.
-- Propiedad que NO se hereda: 
-  * `margin` (o `background-color`). Verificado en DevTools (Computed), donde se observa 
-    que los elementos hijos no heredan los márgenes ni el fondo del contenedor principal, 
-    sino que manejan sus propios valores por defecto del navegador o reglas específicas.
+| Combinación Evaluada | Relación de Contraste | Clasificación Oficial |
+| --- | --- | --- |
+| **Blanco** sobre *Verde Ruta* (`#1E7A4F`) | ~4.8:1 | Apta para texto normal |
+| **Blanco** sobre *Naranja Pedal* (`#F39A2B`) | ~2.3:1 | No apta (contraste bajo) |
+| **Azul Noche** (`#14213D`) sobre *Naranja Pedal* (`#F39A2B`) | ~5.2:1 | Apta para texto normal |
+| **Azul Noche** (`#14213D`) sobre *Crema* (`#FAF6EF`) | ~14.5:1 | Apta para texto normal (Excelente) |
+| **Gris Asfalto** (`#5B6470`) sobre *Crema* (`#FAF6EF`) | ~4.6:1 | Apta para texto normal |
+| **Verde Ruta** (`#1E7A4F`) sobre *Crema* (`#FAF6EF`) | ~3.2:1 | Apta solo para texto grande / títulos |
+| **Naranja Pedal** (`#F39A2B`) sobre *Crema* (`#FAF6EF`) | ~2.1:1 | No apta |
+| **Blanco** sobre *Azul Noche* (`#14213D`) | ~15.0:1 | Apta para texto normal |
 
-    6. AUDITORÍA DE ESPECIFICIDAD Y CORRECCIÓN (MINI-RETO 10)
---------------------------------------------------
-- Conflicto detectado: La regla `.activo` no aplicaba el color verde a la página actual.
-- Análisis de especificidad en DevTools:
-  * Selector `#menu a` -> 1 ID, 1 Elemento (Especificidad: 101).
-  * Selector `.activo` -> 1 Clase (Especificidad: 10).
-- Causa del problema: El selector `#menu a` tenía mayor especificidad (101) que la clase `.activo` 
-(10), por lo que el navegador ignoraba la regla de la clase.
-- Solución aplicada: Se corrigió combinando el ID, la etiqueta y la clase en un selector de mayor
- especificidad (`#menu a.activo`, puntuación 111) sin recurrir a `!important` ni a estilos en línea.
-- Accesibilidad de enfoque: Se implementaron estados `:focus` y `:hover` claros con contornos visibles
- (outline) para garantizar la navegación por teclado con la tecla Tab cumpliendo con los contrastes
-  WCAG.
+---
+
+## 6. Conceptos Técnicos y Pruebas en DevTools
+
+* **Herencia en CSS:**
+* **Sí se hereda:** `color` y `font-family` (verificado en párrafos `<p>` heredando desde `<body>`).
+* **No se hereda:** `margin` y `background-color` (los hijos manejan valores propios o del navegador).
 
 
-Medición de box-sizing en DevTools
-1. Sin box-sizing (Comportamiento por defecto / content-box)
+* **Especificidad (Mini-Reto 10):**
+* Conflicto: Selector `#menu a` (Especificidad: 101) sobrepasaba a `.activo` (Especificidad: 10).
+* Solución: Combinación de selectores `#menu a.activo` (Puntuación: 111) garantizando accesibilidad de enfoque (`:focus` y `:hover` con contornos visibles).
 
-    Qué ocurría: El ancho total de la tarjeta (.tarjeta-servicio) se calculaba sumando el ancho base especificado más el relleno (padding) y los bordes (border) por separado.
 
-    Efecto: Esto provocaba que los elementos se expandieran más allá del contenedor deseado, alterando las dimensiones exactas y causando problemas de desbordamiento en el diseño responsivo.
+* **Medición de `box-sizing`:**
+* *Sin box-sizing (`content-box`):* El ancho sumaba padding y bordes por separado, causando desbordamientos.
+* *Con `box-sizing: border-box`:* Las dimensiones totales calculan el relleno y bordes hacia adentro, manteniendo un ancho predecible.
 
-2. Con box-sizing: border-box (Aplicado en el proyecto)
 
-    Qué ocurre: Como se observa en la pestaña Computed de DevTools, al aplicar la regla global box-sizing: border-box, el navegador calcula las dimensiones totales incluyendo el relleno y los bordes hacia adentro de la caja.
 
-    Resultado medido: El ancho total de la tarjeta de servicio se mantiene exacto, controlado y predecible, evitando que los espacios internos fuercen un crecimiento no deseado en la interfaz.
+---
+
+## 7. Resumen de Lanzamiento (Versión 1.0)
+
+### Fases Completadas de la Semana
+
+* **Estructura y Semántica HTML:** Creación multipágina y uso riguroso de etiquetas semánticas (`header`, `nav`, `main`, `section`, `article`, `footer`).
+* **Estilos Globales y Modelo de Caja:** Configuración de variables `:root`, tipografías (*Montserrat* y *Open Sans*) y reset universal con `box-sizing: border-box`.
+* **Componentes, Tablas y Formularios:** Diseño de tarjetas, tablas de precios y campos agrupados en formularios con validación nativa.
+* **Posicionamiento y Lanzamiento (v1.0):**
+* Uso de `relative` en tarjetas y `absolute` para fijar la etiqueta "Nuevo" sin alterar el flujo.
+* Uso de `fixed` para mantener el botón flotante de WhatsApp visible al hacer scroll.
+* Pruebas de accesibilidad con teclado (`Tab`), control de versiones en Git y despliegue en GitHub Pages.
+
+
+
+### Propuestas de Mejora Futura
+
+* Implementar un menú de navegación adaptable (tipo menú hamburguesa) para pantallas móviles pequeñas.
+* Añadir validación avanzada mediante JavaScript para mejorar la retroalimentación al enviar formularios.
