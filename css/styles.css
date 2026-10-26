@@ -1,45 +1,28 @@
 
+/* ========================================== */
+/* 1. VARIABLES Y CONFIGURACIÓN GLOBAL        */
+/* ========================================== */
 :root {
-    /* 1. Colores oficiales de la marca */ 
+    /* Colores oficiales de la marca */ 
     --color-verde: #1E7A4F;
     --color-naranja: #F39A2B;
     --color-azul: #14213D;
     --color-crema: #FAF6EF;
     --color-gris: #5B6470;
 
-    /* 2. Tipografías con fuentes de respaldo */
+    /* Tipografías con fuentes de respaldo */
     --font-titulo: 'Montserrat', sans-serif;
     --font-texto: 'Open Sans', sans-serif;
 
-    /* 3. Escala de espaciado en rem */
+    /* Escala de espaciado en rem */
     --espacio-sm: 0.5rem;   /* 8px aprox */
-    --espacio-md: 1rem;     /* 16px aprox */
-    --espacio-lg: 2rem;     /* 32px aprox */
+    --espacio-md: 1.0rem;   /* 16px aprox */
+    --espacio-lg: 2.0rem;   /* 32px aprox */
 } 
 
-/* ========================================== */
-/* ESTILOS BASE Y HERENCIA                    */
-/* ========================================== */
-
+/* Reset universal para un cálculo de caja predecible */
 *, *::before, *::after {
     box-sizing: border-box;
-}
-
-
-header, 
-main, 
-footer {
-    max-width: 75rem;       /* Ancho máximo de 1200px */
-    margin-left: auto;      /* Margen automático a la izquierda */
-    margin-right: auto;     /* Margen automático a la derecha */
-    padding-left: var(--espacio-md);
-    padding-right: var(--espacio-md);
-}
-
-header {
-
-    padding-top: var(--espacio-md);
-    padding-bottom: var(--espacio-md);
 }
 
 body {
@@ -49,34 +32,79 @@ body {
     margin: 0;
     padding: var(--espacio-md);
     line-height: 1.6;
+    padding-bottom: 5rem; /* Espacio inferior para evitar que el botón de WhatsApp tape el contenido */
 }
 
-nav ul {
-    list-style: none;     /* Elimina los puntos o viñetas de la lista */
-    padding: 0;           /* Remueve el relleno predeterminado del navegador */
-    margin: 0;            /* Remueve los márgenes predeterminados */
-    display: flex;        /* Convierte el contenedor en una caja flexible (en fila) */
-    gap: var(--espacio-md); /* Crea una separación automática y limpia entre cada opción */
-}
-
-nav a {
-    text-decoration: none; /* Elimina la línea subrayada de los enlaces */
-    color: var(--color-principal); /* Usa el color principal de la marca */
-    font-family: var(--font-titulo);
-    font-weight: bold;
-}
-
-/* Selector agrupado para aplicar la fuente de títulos a todos los encabezados */
+/* Selector agrupado para aplicar la tipografía de títulos a todos los encabezados */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-titulo);
     color: var(--color-azul);
 }
 
+
+/* ========================================== */
+/* 2. LAYOUT (Estructura general)             */
+/* ========================================== */
+header, 
+main, 
+footer {
+    max-width: 75rem;       /* Ancho máximo de contenedor (1200px) */
+    margin-left: auto;      /* Centrado horizontal automático */
+    margin-right: auto;     
+    padding-left: var(--espacio-md);
+    padding-right: var(--espacio-md);
+}
+
+header {
+    padding-top: var(--espacio-md);
+    padding-bottom: var(--espacio-md);
+}
+
+
+/* ========================================== */
+/* 3. NAVEGACIÓN Y ENCABEZADO                 */
+/* ========================================== */
+
+/* Contenedor del título y logo en columna y centrados */
+.logo-marca {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    gap: var(--espacio-sm); 
+    margin-bottom: var(--espacio-md);
+}
+
+.img-logo {
+    width: 80px;  
+    height: auto;
+}
+
+.logo-marca h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--color-azul);
+    font-family: var(--font-titulo);
+}
+
+/* Estructura horizontal del menú */
+nav ul {
+    list-style: none;     
+    padding: 0;           
+    margin: 0;            
+    display: flex;        
+    justify-content: center; 
+    gap: var(--espacio-md); 
+}
+
+/* Enlaces del menú principal */
 #menu a {
     color: var(--color-gris);
     text-decoration: none;
     padding: var(--espacio-sm) var(--espacio-md);
     display: inline-block;
+    font-family: var(--font-titulo);
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
@@ -94,10 +122,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #menu a:focus {
-    background-color: rgba(30, 122, 79, 0.1); /* Sutil fondo verde translúcido */
+    background-color: rgba(30, 122, 79, 0.1); /* Fondo translúcido accesible al navegar con teclado */
     border-radius: 4px;
 }
 
+
+/* ========================================== */
+/* 4. COMPONENTES (Tarjetas, Etiquetas, WhatsApp)*/
+/* ========================================== */
+
+/* Tarjetas de servicios estándar */
 .tarjeta-servicio {
     background-color: #FFFFFF;
     border: 1px solid rgba(20, 33, 61, 0.15);
@@ -105,7 +139,26 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--espacio-md);
     margin-bottom: var(--espacio-md);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
 
+/* Tarjeta destacada: POSICIONAMIENTO RELATIVE (Sirve de ancla para elementos absolutos internos) */
+.tarjeta-destacada {
+    position: relative;
+}
+
+/* Etiqueta "Nuevo": POSICIONAMIENTO ABSOLUTE (Anclada a la esquina superior derecha sin alterar el flujo) */
+.etiqueta-nuevo {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    background-color: var(--color-verde);
+    color: #FFFFFF;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 4px;
+    font-family: var(--font-titulo);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .tarjeta-servicio img {
@@ -113,6 +166,34 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     border-radius: 4px;
 }
+
+/* Botón flotante de WhatsApp: POSICIONAMIENTO FIXED (Permanente en la esquina inferior derecha) */
+.btn-whatsapp {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: #25D366; /* Color oficial de WhatsApp */
+    color: #FFFFFF;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px; /* Estilo píldora */
+    text-decoration: none;
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 1000; /* Asegura que flote por encima de cualquier otro elemento */
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+    background-color: #1EBE5D;
+    outline: 3px solid var(--color-naranja);
+}
+
+
+/* ========================================== */
+/* 5. TABLAS Y FORMULARIOS                    */
+/* ========================================== */
 
 table {
     width: 100%;
@@ -122,15 +203,15 @@ table {
 }
 
 th, td {
-    padding: var(--espacio-sm) var(--espacio-md); /* Relleno interno para que el texto no respire pegado */
-    border: 1px solid rgba(20, 33, 61, 0.2); /* Borde sutil y elegante en cada celda */
-    text-align: left; /* Alinea el texto a la izquierda para facilitar la lectura */
+    padding: var(--espacio-sm) var(--espacio-md); 
+    border: 1px solid rgba(20, 33, 61, 0.2); 
+    text-align: left; 
 }
 
 th {
-    background-color: var(--color-verde); /* Fondo con el color institucional de la marca */
-    color: #FFFFFF; /* Texto blanco para garantizar un contraste perfecto y accesible */
-    font-family: var(--font-titulo); /* Usa la tipografía de títulos */
+    background-color: var(--color-verde); 
+    color: #FFFFFF; 
+    font-family: var(--font-titulo); 
 }
 
 .grupo-formulario, 
@@ -146,6 +227,7 @@ label {
     color: var(--color-gris);
 }
 
+/* Selector agrupado para estirar todos los campos del formulario al 100% */
 input[type="text"],
 input[type="email"],
 input[type="date"],
@@ -173,6 +255,7 @@ form input[type="submit"] {
     font-family: var(--font-titulo);
 }
 
+/* Botón de llamada a la acción (CTA) general */
 .btn-cta {
     background-color: var(--color-verde);
     color: #FFFFFF;
@@ -188,10 +271,11 @@ form input[type="submit"] {
 
 .btn-cta:hover,
 .btn-cta:focus {
-    background-color: #155d3c; /* Tono más oscuro aprobado por contraste */
-    outline: 3px solid var(--color-naranja); /* Indicador de foco claro para accesibilidad */
+    background-color: #155d3c; 
+    outline: 3px solid var(--color-naranja); 
 }
 
+/* Estados de foco interactivos para campos de entrada y accesibilidad */
 input:focus,
 select:focus,
 textarea:focus {
@@ -199,4 +283,3 @@ textarea:focus {
     background-color: #FFFFFF;
     border-color: var(--color-verde);
 }
-
