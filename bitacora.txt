@@ -3,6 +3,13 @@
 # 📋 Bitácora de Proyecto: Rueda Libre
 
 ---
+## 0. Nota sobre mi proceso y el uso de la IA en este proyecto
+
+Durante el desarrollo de la versión 1.0 de Rueda Libre, decidí usar la Inteligencia Artificial no como un atajo para que me hiciera el trabajo, sino como un compañero de estudio y tutor personal.
+
+En lugar de copiar y pegar código sin saber qué pasaba, mi enfoque fue entender cada concepto a fondo. Cada vez que me tropezaba con un problema —ya fuera un enredo con la especificidad de los selectores en el menú, un detalle con el posicionamiento de las etiquetas o la validación del formulario—, la idea era descifrar el por qué de las cosas.
+
+Usé esta herramienta para debatir, revisar mis errores, entender cómo funcionan realmente el modelo de caja o las normas de accesibilidad, y construir cada línea de código de forma consciente. Este proyecto refleja horas de prueba, error, aprendizaje y el esfuerzo genuino por sacar adelante la versión 1.0 por cuenta propia.
 
 ## 1. Información General y Diagnóstico
 
