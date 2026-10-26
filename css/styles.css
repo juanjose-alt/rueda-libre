@@ -1,6 +1,4 @@
-/* ========================================== */
-/* VARIABLES GLOBALES Y PALETA DE MARCA       */
-/* ========================================== */
+
 :root {
     /* 1. Colores oficiales de la marca */ 
     --color-verde: #1E7A4F;
@@ -23,6 +21,27 @@
 /* ESTILOS BASE Y HERENCIA                    */
 /* ========================================== */
 
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+header, 
+main, 
+footer {
+    max-width: 75rem;       /* Ancho máximo de 1200px */
+    margin-left: auto;      /* Margen automático a la izquierda */
+    margin-right: auto;     /* Margen automático a la derecha */
+    padding-left: var(--espacio-md);
+    padding-right: var(--espacio-md);
+}
+
+header {
+
+    padding-top: var(--espacio-md);
+    padding-bottom: var(--espacio-md);
+}
+
 body {
     background-color: var(--color-crema);
     color: var(--color-azul);
@@ -30,6 +49,21 @@ body {
     margin: 0;
     padding: var(--espacio-md);
     line-height: 1.6;
+}
+
+nav ul {
+    list-style: none;     /* Elimina los puntos o viñetas de la lista */
+    padding: 0;           /* Remueve el relleno predeterminado del navegador */
+    margin: 0;            /* Remueve los márgenes predeterminados */
+    display: flex;        /* Convierte el contenedor en una caja flexible (en fila) */
+    gap: var(--espacio-md); /* Crea una separación automática y limpia entre cada opción */
+}
+
+nav a {
+    text-decoration: none; /* Elimina la línea subrayada de los enlaces */
+    color: var(--color-principal); /* Usa el color principal de la marca */
+    font-family: var(--font-titulo);
+    font-weight: bold;
 }
 
 /* Selector agrupado para aplicar la fuente de títulos a todos los encabezados */
@@ -62,6 +96,81 @@ h1, h2, h3, h4, h5, h6 {
 #menu a:focus {
     background-color: rgba(30, 122, 79, 0.1); /* Sutil fondo verde translúcido */
     border-radius: 4px;
+}
+
+.tarjeta-servicio {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(20, 33, 61, 0.15);
+    border-radius: 8px;
+    padding: var(--espacio-md);
+    margin-bottom: var(--espacio-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+}
+
+.tarjeta-servicio img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: var(--espacio-md);
+    margin-bottom: var(--espacio-md);
+}
+
+th, td {
+    padding: var(--espacio-sm) var(--espacio-md); /* Relleno interno para que el texto no respire pegado */
+    border: 1px solid rgba(20, 33, 61, 0.2); /* Borde sutil y elegante en cada celda */
+    text-align: left; /* Alinea el texto a la izquierda para facilitar la lectura */
+}
+
+th {
+    background-color: var(--color-verde); /* Fondo con el color institucional de la marca */
+    color: #FFFFFF; /* Texto blanco para garantizar un contraste perfecto y accesible */
+    font-family: var(--font-titulo); /* Usa la tipografía de títulos */
+}
+
+.grupo-formulario, 
+form div {
+    margin-bottom: var(--espacio-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espacio-sm);
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    color: var(--color-gris);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--espacio-sm);
+    border: 1px solid rgba(20, 33, 61, 0.2);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+form button,
+form input[type="submit"] {
+    padding: var(--espacio-md) var(--espacio-lg);
+    background-color: var(--color-verde);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--font-titulo);
 }
 
 .btn-cta {

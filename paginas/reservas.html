@@ -33,21 +33,23 @@
         <fieldset>
             <legend>Tus datos</legend>
 
-            <div> 
+            <div class="grupo-formulario"> 
                 <label for="nombre">Nombre completo:</label> 
                 <input type="text" id="nombre" name="nombre" required minlength ="3">
             </div>
-            <div>
+            <div class="grupo-formulario">
                 <label for="documento">Documento de identidad:</label>
-                <input type="text" id="documento" name="documento" required pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos">
+                <input type="text" id="documento" name="documento" required 
+                pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 
+                dígitos">
             </div>
-            <div>
+            <div class="grupo-formulario">
                 <label for="correo">Correo electrónico:</label>
                 <input type="email" id="correo" name="correo"
                 required>
             </div>
 
-            <div>
+            <div class="grupo-formulario">
                 <label for="telefono">Teléfono:</label>
                 <input type="tel" id="telefono" name="telefono" required pattern 
                 ="^3[0-9]{9}$" title="Solo números, entre 6 y 10 dígitos">
@@ -59,29 +61,29 @@
             <legend>Tu alquiler</legend>
             <p>Selecciona el tipo de bicicleta
             </p>
-            <div>
+            <div class="grupo-formulario">
                 <input type="radio" id="urbana" name="tipo_bici"
                  value="urbana" checked>
                 <label for="urbana">Bicicleta urbana</label>
             </div>
-            <div>
+            <div class="grupo-formulario">
                 <input type="radio" id="electrica" name="tipo_bici"
                  value="electrica">
                 <label for="electrica">Bicicleta eléctrica</label>
             </div>
-            <div>
+            <div class="grupo-formulario">
                 <label for="cantidad">Cantidad de bicicletas:</label>
                 <input type="number" id="cantidad" name="cantidad" 
                 required min="1" max="6" value="1">
             </div>
-            <div>
+            <div class="grupo-formulario">
                 <label for="fecha">Fecha de reserva
                 </label>
                 <input type="date" 
                 id="fecha" name="fecha" required min ="2026-11-01" max="2026-12-31">
             </div>
            
-            <div>
+            <div class="grupo-formulario">
                 <label for="punto_recogida">Punto de recogida</label>
                 <select id="punto_recogida" name="punto_recogida" required>
                     <option value="">Selecciona un punto</option>
@@ -94,14 +96,14 @@
         <fieldset>
     <legend>Confirmación</legend>
     
-    <div>
+    <div class="grupo-formulario">
         <label for="comentarios">Comentarios adicionales:</label><br>
         <textarea id="comentarios" name="comentarios" rows="3" 
         cols="30" max length ="300"></textarea>
     
     </div>
 
-    <div>
+    <div class="grupo-formulario">
         <input type="checkbox" id="terminos" name="terminos" required>
         <label for="terminos">Acepto los términos y condiciones *</label>
     </div>

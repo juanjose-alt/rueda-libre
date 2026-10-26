@@ -149,3 +149,17 @@ Blanco sobre Azul Noche (#14213D),~15.0:1,Apta para texto normal
 - Accesibilidad de enfoque: Se implementaron estados `:focus` y `:hover` claros con contornos visibles
  (outline) para garantizar la navegación por teclado con la tecla Tab cumpliendo con los contrastes
   WCAG.
+
+
+Medición de box-sizing en DevTools
+1. Sin box-sizing (Comportamiento por defecto / content-box)
+
+    Qué ocurría: El ancho total de la tarjeta (.tarjeta-servicio) se calculaba sumando el ancho base especificado más el relleno (padding) y los bordes (border) por separado.
+
+    Efecto: Esto provocaba que los elementos se expandieran más allá del contenedor deseado, alterando las dimensiones exactas y causando problemas de desbordamiento en el diseño responsivo.
+
+2. Con box-sizing: border-box (Aplicado en el proyecto)
+
+    Qué ocurre: Como se observa en la pestaña Computed de DevTools, al aplicar la regla global box-sizing: border-box, el navegador calcula las dimensiones totales incluyendo el relleno y los bordes hacia adentro de la caja.
+
+    Resultado medido: El ancho total de la tarjeta de servicio se mantiene exacto, controlado y predecible, evitando que los espacios internos fuercen un crecimiento no deseado en la interfaz.
