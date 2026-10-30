@@ -67,11 +67,22 @@ footer {
     margin-right: auto;     
     padding-left: var(--espacio-md);
     padding-right: var(--espacio-md);
+    display:flex; 
+    justify-content: space-between; /* Distribuye los bloques en fila de forma uniforme */
+    align-items: flex-start; /* Los alinea por la parte superior */
+    flex-wrap: wrap;
+    gap: var(--espacio-md);
 }
 
 header {
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
     padding-top: var(--espacio-md);
     padding-bottom: var(--espacio-md);
+    display: flex;
+    justify-content: space-between; /* Empuja un hijo a la izquierda y otro a la derecha */
+    align-items: center; /* Los centra verticalmente entre sí */
 }
 
 /*3. Navegación y Encabezado (.logo-marca, nav ul, #menu a)
@@ -121,6 +132,7 @@ nav ul {
     display: flex;        
     justify-content: center; 
     gap: var(--espacio-md); 
+    flex-wrap: wrap; /* Si la pantalla se encoge, los enlaces bajan de línea solos */
 }
 
 /* Enlaces del menú principal */

@@ -129,3 +129,27 @@ Usé esta herramienta para debatir, revisar mis errores, entender cómo funciona
 
 * Implementar un menú de navegación adaptable (tipo menú hamburguesa) para pantallas móviles pequeñas.
 * Añadir validación avanzada mediante JavaScript para mejorar la retroalimentación al enviar formularios.
+
+
+
+---
+
+### Registro de Bitácora - Semana 2: Día 1
+
+* **Observación de comportamiento responsivo:** Al reducir el ancho de la ventana 
+del navegador (simulando pantallas de dispositivos móviles o aplicando zoom), el 
+contenedor principal del encabezado (`<header>`), que utiliza `display: flex` con 
+`justify-content: space-between`, mantiene inicialmente el nombre/logo a la 
+izquierda y el menú de navegación a la derecha.
+
+* **Efecto del salto de línea:** A medida que el espacio horizontal se reduce y 
+los elementos ya no caben en una sola línea, la propiedad `flex-wrap: wrap` 
+aplicada al contenedor de la lista (`nav ul`) interviene de manera controlada. 
+En lugar de desbordar la pantalla o romper el diseño horizontal, el bloque de 
+navegación desciende de forma ordenada y se ubica debajo del logo y el título 
+principal, adaptándose al formato vertical de una sola columna sin perder la 
+separación limpia generada por la propiedad `gap`.
+
+---
+
+
