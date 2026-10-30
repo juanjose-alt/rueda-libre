@@ -153,3 +153,20 @@ separación limpia generada por la propiedad `gap`.
 ---
 
 
+Registro de Bitácora - Semana 2: Cuadrícula Adaptable (Grid & Flexbox)
+
+    Comportamiento de la cuadrícula con CSS Grid: Se implementó grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) en la sección de la flota, logrando un diseño completamente responsivo y fluido sin necesidad de media queries.
+
+    Prueba de columnas a distintos anchos (Modo Dispositivo):
+
+        1280 px: Se visualizan 3 columnas distribuidas uniformemente.
+
+        900 px: La cuadrícula se reorganiza automáticamente a 2 columnas.
+
+        500 px: El diseño se adapta a 1 sola columna, priorizando la legibilidad en pantallas móviles.
+
+    Alineación interna con Flexbox: Al convertir cada tarjeta en un contenedor de columna flexible (flex-direction: column) y aplicar margin-top: auto al botón "Reservar", se logró que todas las tarjetas de una misma fila mantengan una altura uniforme y sus botones queden perfectamente alineados en la parte inferior, sin importar la longitud de las descripciones.
+
+    Escalabilidad: Se añadió el séptimo modelo ("Tándem") comprobando que la cuadrícula se reorganiza por sí sola sin modificar las reglas de CSS.
+
+

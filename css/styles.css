@@ -135,6 +135,12 @@ nav ul {
     flex-wrap: wrap; /* Si la pantalla se encoge, los enlaces bajan de línea solos */
 }
 
+.contenedor-grid-flota {
+    display:grid; /* Convierte al contenedor en una cuadrícula bidimensional (filas y columnas).*/
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--espacio-md) /*Separa tanto las filas como las columnas de forma limpia y uniforme, usando tu variable de espaciado.*/
+}
+
 /* Enlaces del menú principal */
 #menu a {
     color: var(--color-gris);
@@ -187,7 +193,14 @@ nav ul {
     padding: var(--espacio-md);
     margin-bottom: var(--espacio-md);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display:flex;
+    flex-direction:column;
 }
+.tarjeta-servicio .btn-cta {
+
+margin-top:auto;/* El truco de Flexbox: absorbe todo el espacio libre superior y empuja el botón al fondo */
+}
+
 
 /* Tarjeta destacada: POSICIONAMIENTO RELATIVE (Sirve de ancla para elementos absolutos internos) */
 .tarjeta-destacada {
