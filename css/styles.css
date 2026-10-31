@@ -30,6 +30,9 @@
     --espacio-lg: 2.0rem;   /* 32px aprox */
 } 
 
+
+
+
 /* Reset universal para un cálculo de caja predecible */
 *, *::before, *::after {
     box-sizing: border-box;
@@ -102,6 +105,49 @@ header {
 /* 3. NAVEGACIÓN Y ENCABEZADO                 */
 /* ========================================== */
 
+.portada-inicio {
+    display: grid; /* Convierte al contenedor en una cuadrícula bidimensional (filas y columnas).*/
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales que reparten el espacio */
+    align-items: center; /* Centra verticalmente el contenido de cada columna */
+    gap: var(--espacio-lg); /* separacion limpia  entre texto e imagen */
+    margin-bottom: var(--espacio-lg);
+}
+
+.portada-imagen img {
+    width: 100%; /* La imagen ocupa todo el ancho de su columna */
+    height: auto; /* Mantiene la proporción original */
+    border-radius: 8px; /* Bordes redondeados para suavizar la imagen */
+}
+
+.contenedor-grid-rutas {
+    display: grid; /* Convierte al contenedor en una cuadrícula bidimensional (filas y columnas).*/
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales que reparten el espacio */
+    gap: var(--espacio-md); /* Separa tanto las filas como las columnas de forma limpia y uniforme, usando tu variable de espaciado. */
+    margin-bottom: var(--espacio-lg);
+}
+
+.tarjeta-ruta {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(20, 33, 61, 0.15);
+    border-radius: 8px;
+    padding: var(--espacio-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-ruta img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.contenedor-reservas{
+display: grid;
+grid-template-columns: 2fr 1fr; /* Formulario toma 2 partes y el contacto 1 parte */
+gap: var(--espacio-lg); /* Espacio entre el formulario y la información de contacto */
+align-items: start; /* Alinea el contenido al inicio de la fila */
+}
+
+
 /* Contenedor del título y logo en columna y centrados */
 .logo-marca {
     display: flex;
@@ -112,6 +158,14 @@ header {
     margin-bottom: var(--espacio-md);
 }
 
+.fila-formulario-doble {
+    display: flex;
+    gap: var(--espacio-md);
+}
+
+.fila-formulario-doble .grupo-formulario {
+    flex: 1; /* Cada grupo de formulario ocupa la misma proporción del espacio disponible */
+}
 .img-logo {
     width: 80px;  
     height: auto;

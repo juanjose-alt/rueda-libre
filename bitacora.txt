@@ -170,3 +170,28 @@ Registro de Bitácora - Semana 2: Cuadrícula Adaptable (Grid & Flexbox)
     Escalabilidad: Se añadió el séptimo modelo ("Tándem") comprobando que la cuadrícula se reorganiza por sí sola sin modificar las reglas de CSS.
 
 
+### Registro de Bitácora - Semana 2: Elección de Layout (Grid vs. Flexbox)
+
+1. **Encabezado (Header):** 
+   - *Técnica:* **Flexbox**. 
+   - *Por qué:* Es una estructura unidimensional para alinear el logo a un extremo y el menú de navegación al otro (`space-between`), manteniendo los elementos centrados verticalmente en una sola línea.
+
+2. **Portada de Inicio (Hero):** 
+   - *Técnica:* **Grid**. 
+   - *Por qué:* Requiere dividir el macro-layout de la página en dos dimensiones (columnas proporcionales `1fr 1fr`) para acomodar el bloque de texto y la imagen de bienvenida de manera estructurada.
+
+3. **Galería "Nuestras rutas":** 
+   - *Técnica:* **Grid**. 
+   - *Por qué:* Se necesita una cuadrícula fija de 3 columnas (`repeat(3, 1fr)`) para distribuir las tarjetas de las rutas de manera uniforme y simétrica en una fila de escritorio.
+
+4. **Sección de Reservas (Formulario y Contacto):** 
+   - *Técnica:* **Grid**. 
+   - *Por qué:* Controla el diseño general de la vista en dos dimensiones con proporciones asimétricas específicas (`2fr` para el formulario principal y `1fr` para la información de contacto).
+
+5. **Fila doble del formulario (Correo y Teléfono):** 
+   - *Técnica:* **Flexbox**. 
+   - *Por qué:* Es un componente interno y lineal (una sola fila) donde los campos cortos deben distribuirse horizontalmente de manera flexible (`flex: 1`).
+
+6. **Pie de página (Footer):** 
+   - *Técnica:* **Flexbox**. 
+   - *Por qué:* Organiza los elementos institucionales y de contacto en una sola dirección horizontal, adaptándose eficientemente ante cambios de espacio.

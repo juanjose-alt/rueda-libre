@@ -87,15 +87,47 @@
         <ol>: Lista ordenada (numérica), utilizada en los pasos de alquiler.-->
         
         <main>
-        <section>
+        <section class ="portada-inicio">
+            <div class="portada-texto">
         <h2>¡Bienvenido a Rueda Libre!</h2>
     <p>Tu mejor opción para
         alquilar bicicletas en Medellín, explorar las 
         ciclorrutas y disfrutar de la ciudad con total 
         libertad y seguridad. 
     </p>
+    </div>
+    <div class="portada-imagen">
+        <img src="img/bici-tradicional.avif" alt="Ciclista disfrutando rueda libre" width="500" height="350">
+    </div>
        </section>
     
+    <section id="galeria-rutas">
+        <h2> Nuestras rutas guiadas</h2>
+        <p>Descubre Medellín y sus alrededores con nuestras rutas guiadas,
+             diseñadas para todos los niveles de experiencia.</p>
+
+        <div class="contenedor-grid-rutas">
+            
+            <article class="tarjeta-ruta">
+                <img src="img/bici-tradicional.avif" alt="Ruta por la ciudad" width="300" height="200">
+                <h3>Río y parques</h3>
+                <p><strong>Nivel:</strong> Fácil</p>
+            </article>
+
+            <article class="tarjeta-ruta">
+                <img src="img/bici-tradicional.avif" alt="Ruta por la montaña" width="300" height="200">
+                <h3>Sabores de Barrio</h3>
+                <p><strong>Nivel:</strong> Intermedio</p>
+            </article>
+
+            <article class="tarjeta-ruta">
+                <img src="img/bici-tradicional.avif" alt="Ruta por la montaña" width="300" height="200">
+                <h3>Reto Las Palmas</h3>
+                <p><strong>Nivel:</strong> Difícil</p>
+            </article>
+        </div>
+    </section>
+
        <section id="flota">   
         <h2>   
         Nuestra flota
@@ -103,7 +135,6 @@
       <p>
         Conoce la bicicleta perfecta para tu próxima rodada por la ciudad o la montaña.
       </p>
-
 
       <!--Contenedor padre de la cuadricula-->
       <div class="contenedor-grid-flota">
@@ -124,6 +155,7 @@
                 alt="Bicicleta de ruta" width="300" height="200">
                 <h3>Urbana Plegable</h3>
             <p>Se dobla en segundos; ideal para combinar con el metro.</p>
+            <p class="precio">$12 000 COP / hora </p>
             <a href="paginas/reservas.html" class="btn-cta">Reservar</a>
         </article>
 
