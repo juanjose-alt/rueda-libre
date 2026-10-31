@@ -1,206 +1,134 @@
-<!--1. Configuración de la Cabecera (<!DOCTYPE>, <html>, <head>, <meta>, <link>, <title>)
-
-        <!DOCTYPE html>: Define que el documento web utiliza la especificación moderna de HTML5.
-
-        <html lang="es">: Etiqueta raíz que envuelve todo el documento y declara el idioma español.
-
-        <head>: Contenedor de metadatos invisibles para el usuario pero necesarios para el navegador.
-
-        <link rel="preconnect">: Realiza una conexión previa con los servidores de Google Fonts para acelerar la carga.
-
-        <link href="..." rel="stylesheet">: Importa las fuentes tipográficas de Google y vincula la hoja de estilos global ubicada en ../css/styles.css.
-
-        <meta charset="UTF-8">: Configura la codificación de caracteres para mostrar correctamente tildes y eñes.
-
-        <meta name="viewport" ...>: Establece la escala adaptable para pantallas de dispositivos móviles (diseño responsivo).
-
-        <link rel="icon" ...>: Carga el icono en miniatura (favicon) para la pestaña del navegador.
-
-        <title>: Muestra el título descriptivo de la pestaña actual.-->
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<!-- Google Fonts preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Importación de Montserrat (700) y Open Sans (400, 600) -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css">   
-<meta charset="UTF-8">
-    <meta name="viewport" content=
-    "width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/png" href="../img/logo.png">
-    <title>Tarifas y recorridos</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarifas y recorridos | Rueda Libre</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    
+    <!-- Fuentes y CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">   
 </head>
+<body>
 
+    <!-- Encabezado y Navegación -->
+    <header>
+        <div class="logo-marca">
+            <h1>Tarifas y recorridos</h1>
+            <img src="../img/logo.png" alt="Logo de Rueda Libre" width="100" height="100" class="img-logo"> 
+        </div>   
 
-<!--2. Cuerpo, Cabecera y Menú de Navegación (<body>, <div>, <header>, <h1>, <img>, <nav>, <ul>, <li>, <a>, <br>)
-
-        <body>: Contiene todos los elementos visuales e interactivos de la página web.
-
-        <div class="logo-marca">: Contenedor genérico en bloque para agrupar y posicionar elementos gráficos y textuales.
-
-        <header>: Etiqueta semántica destinada a la cabecera principal del documento.
-
-        <h1>: Encabezado principal de nivel 1 que describe el tema de la página.
-
-        <img src="..." alt="...">: Inserta una imagen con su ruta y su texto alternativo obligatorio para accesibilidad.
-
-        <nav>: Sección semántica dedicada exclusivamente a la barra de navegación del sitio.
-
-        <ul> y <li>: Estructuran una lista desordenada de elementos para las opciones del menú.
-
-        <a href="...">: Hipervínculo para navegar entre páginas (nota el uso de ../ para salir a la carpeta raíz).
-
-        <br>: Genera un salto de línea simple dentro del flujo del texto.-->
-        <body>
-            <header>
-                <div class="logo-marca">
-        <h1>Tarifas y recorridos</h1>
-        <img src="../img/logo.png" alt="Logo
-         de Rueda Libre" width="100" height="100" class="img-logo"> 
-     </div>   
-
-    <nav>
-    <ul id="menu">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html" class="activo">Tarifas y recorridos</a></li>
-        <li><a href="reservas.html">Reservas</a></li>
-    </ul>
-</nav>
-
-    <br>
+        <nav>
+            <ul id="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html" class="activo">Tarifas y recorridos</a></li>
+                <li><a href="reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
     </header>
-        
-<!--3. Contenido Principal y Tablas de Datos (<main>, <section>, <table>, <caption>, <thead>, <tbody>, <tr>, <th>, <td>, <a>)
 
-        <main>: Etiqueta semántica que engloba el contenido central y exclusivo de la página.
-
-        <section>: Define secciones temáticas o bloques de contenido independientes.
-
-        <table border="2">: Crea una tabla de datos estructurada (con un borde visual básico de prueba).
-
-        <caption>: Proporciona un título o descripción oficial para la tabla.
-
-        <thead>: Agrupa las filas de encabezado de la tabla.
-
-        <tbody>: Agrupa el cuerpo con los datos principales de la tabla.
-
-        <tr>: Define una fila horizontal dentro de la tabla.
-
-        <th scope="col"> o <th scope="row">: Celda de encabezado (columna o fila), clave para la accesibilidad de lectores de pantalla.
-
-        <td>: Celda estándar de datos tabulares.
-
-        <a href="..." class="btn-cta">: Enlace estilizado como botón de llamada a la acción (Call to Action).-->
-            <main> 
-        <section>
-            <table border="2">
-                <caption>Precios y recorridos</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">Tipo de Bicicleta</th>
-                        <th scope="col">1 Hora</th>
-                        <th scope="col">Medio día (4h)</th>
-                        <th scope="col">Día completo</th>
-                    </tr>
-                </thead>
-                <tbody> 
-                    <tr>
-                        <th scope="row">Urbana</th>
-                        <td>$10000 COP</td>
-                        <td>$30000 COP</td>
-                        <td>$50000 COP</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Montaña</th>
-                        <td>$15000 COP</td>
-                        <td>$45000 COP</td>
-                        <td>$70000 COP</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">Eléctrica</th>
-                        <td>$25000 COP</td>
-                        <td>$70000 COP</td>
-                        <td>$110000 COP</td>
-                    </tr>
-                </tbody>
-            </table>
-            <a href="reservas.html" class="btn-cta">Reservar ahora</a>
-        </section>
-
-        <section id="recorridos">
-            <h2>Recorridos guiados</h2>
-            <p>Descubre nuestros recorridos turísticos y disfruta 
-                de la ciudad desde una nueva perspectiva.</p>
-                <table border="2">
-                    <caption>Rutas disponibles</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Recorrido</th>
-                                <th scope="col">Distancia</th>
-                                <th scope="col">Duración</th>
-                                <th scope="col">Nivel</th>
-                                <th scope="col">Precio por persona</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr> 
-                                <th scope="row">Río y Parques</th>
-                                <td>12 km</td>
-                                <td>2 h</td>
-                                <td>Fácil</td>
-                                <td>$20000 COP</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Sabores de Barrio</th>
-                                <td>18 km</td>
-                                <td>3 h</td>
-                                <td>Medio</td>
-                                <td>$60000 COP</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Reto Las Palmas</th>
-                                <td>25 km</td>
-                                <td>4 h</td>
-                                <td>Difícil</td>
-                                <td>$85000 COP</td>
-                            </tr>
-                        </tbody>
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Contenedor responsivo para las dos secciones de tablas -->
+        <div class="contenedor-tarifas">
+            
+            <!-- Tabla de Precios -->
+            <section class="seccion-precios">
+                <h2>Precios y alquiler</h2>
+                <table>
+                    <caption>Precios por tiempo de alquiler</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Tipo de Bicicleta</th>
+                            <th scope="col">1 Hora</th>
+                            <th scope="col">Medio día (4h)</th>
+                            <th scope="col">Día completo</th>
+                        </tr>
+                    </thead>
+                    <tbody> 
+                        <tr>
+                            <th scope="row">Urbana</th>
+                            <td>$10000 COP</td>
+                            <td>$30000 COP</td>
+                            <td>$50000 COP</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Montaña</th>
+                            <td>$15000 COP</td>
+                            <td>$45000 COP</td>
+                            <td>$70000 COP</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Eléctrica</th>
+                            <td>$25000 COP</td>
+                            <td>$70000 COP</td>
+                            <td>$110000 COP</td>
+                        </tr>
+                    </tbody>
                 </table>
-        </section>
+                <a href="reservas.html" class="btn-cta">Reservar ahora</a>
+            </section>
 
-<!--4. Información Complementaria (<aside>, <strong>)
+            <!-- Tabla de Recorridos -->
+            <section id="recorridos" class="seccion-recorridos">
+                <h2>Recorridos guiados</h2>
+                <table>
+                    <caption>Rutas disponibles</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Recorrido</th>
+                            <th scope="col">Distancia</th>
+                            <th scope="col">Duración</th>
+                            <th scope="col">Nivel</th>
+                            <th scope="col">Precio por persona</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr> 
+                            <th scope="row">Río y Parques</th>
+                            <td>12 km</td>
+                            <td>2 h</td>
+                            <td>Fácil</td>
+                            <td>$20000 COP</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Sabores de Barrio</th>
+                            <td>18 km</td>
+                            <td>3 h</td>
+                            <td>Medio</td>
+                            <td>$60000 COP</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Reto Las Palmas</th>
+                            <td>25 km</td>
+                            <td>4 h</td>
+                            <td>Difícil</td>
+                            <td>$85000 COP</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-        <aside>: Etiqueta semántica para contenido secundario, barras laterales o notas complementarias relacionadas con el tema principal.
+        </div>
 
-        <strong>: Etiqueta de texto en negrita que aporta peso e importancia semántica a palabras clave.-->
-            <aside>
+        <!-- Información Adicional -->
+        <aside class="info-adicional">
             <h2>Información adicional</h2>
-            <p>Todas las tarifas incluyen <strong>casco y candado</strong>. 
-                Los recorridos 
-                salen <strong>sábados y domingos</strong>
-                 a las 7:00 a. m. <strong>Recuerda llevar</strong> ropa 
-                cómoda, agua, protector solar y documento de identidad.</p>
-            </aside>
+            <p>Todas las tarifas incluyen <strong>casco y candado</strong>. Los recorridos salen <strong>sábados y domingos</strong> a las 7:00 a. m. <strong>Recuerda llevar</strong> ropa cómoda, agua, protector solar y documento de identidad.</p>
+        </aside>
     </main>
 
+    <!-- Pie de Página y Botón Flotante -->
+    <footer>
+        <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">ruedalibre@example.com</a></p>
+    </footer>
 
-<!--5. Pie de Página y Botón Flotante (<footer>, Atributos de Enlace)
+    <a href="https://wa.me/573000000000" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 
-        <footer>: Etiqueta semántica para el pie de página institucional del sitio web.
-
-        &copy;: Entidad de caracteres especiales para renderizar el símbolo de derechos de autor (©).
-
-        target="_blank": Atributo de enlace que abre la URL externa en una pestaña nueva del navegador.
-
-        rel="noopener noreferrer": Medida de seguridad obligatoria al abrir enlaces en pestañas nuevas para proteger el rendimiento y privacidad de la página.-->
-        <footer>
-    <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">
-        ruedalibre@example.com</a></p>
-</footer>
-<a href="https://wa.me/573000000000" class="btn-whatsapp"
- target="_blank" rel="noopener noreferrer">WhatsApp</a>
 </body>
 </html>

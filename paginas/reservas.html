@@ -1,228 +1,158 @@
-<!--1. Configuración de la Cabecera (<!DOCTYPE>, <html>, <head>, <meta>, <link>, <title>)
-
-        <!DOCTYPE html>: Define que el documento utiliza el estándar moderno de HTML5.
-
-        <html lang="es">: Etiqueta raíz que envuelve todo el sitio web y declara el idioma español.
-
-        <head>: Bloque contenedor de metadatos invisibles para el usuario pero esenciales para el navegador.
-
-        <link rel="preconnect">: Optimiza la conexión previa con los servidores de fuentes de Google.
-
-        <link href="..." rel="stylesheet">: Importa las familias tipográficas de Google Fonts y vincula la hoja de estilos global ubicada en ../css/styles.css.
-
-        <meta charset="UTF-8">: Configura la codificación de caracteres para el correcto uso de tildes y eñes.
-
-        <meta name="viewport" ...>: Establece la escala adaptable para pantallas móviles (diseño responsivo).
-
-        <link rel="icon" ...>: Carga el icono en miniatura (favicon) de la pestaña del navegador.
-
-        <title>: Muestra el título descriptivo de la pestaña actual.-->
-            <!DOCTYPE html>
-    <html lang="es">
-<head   head>
-    <!-- Google Fonts preconnect -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Importación de Montserrat (700) y Open Sans (400, 600) -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/styles.css">    
-<meta charset="UTF-8">
-    <meta name="viewport"
-     content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/png" href="../img/logo.png">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva tu bicicleta | Rueda Libre</title>
     
-</head>
-
-<!--2. Cuerpo, Título Principal y Menú de Navegación (<body>, <main>, <h1>, <nav>, <ul>, <li>, <a>)
-
-        <body>: Contiene todos los elementos visuales e interactivos de la página.
-
-        <main>: Etiqueta semántica para el contenido central y principal del documento.
-
-        <h1>: Encabezado principal de nivel 1 que define el propósito de la página.
-
-        <nav>: Sección semántica dedicada a la barra de navegación del sitio.
-
-        <ul> y <li>: Estructuran una lista desordenada de elementos para los enlaces del menú.
-
-        <a href="...">: Hipervínculo para navegar entre las páginas (nota el uso de ../ para salir a la carpeta raíz).-->
-
-            <body>
-                <header>
-                    <div class="logo-marca">
-        <h1>Reserva tu bicicleta</h1>
-        <img src="../img/logo.png" alt="Logo
-         de Rueda Libre" width="100" height="100" class="img-logo"> 
-                    </div>
-        <nav>
-         <ul id="menu">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html">Tarifas y recorridos</a></li>
-        <li><a href="reservas.html" class="activo">Reservas</a></li>
-        </ul>
-        </nav>
-                </header>
-      
-<!--3. Contenedor de Sección y Formulario (<section>, <form>, <fieldset>, <legend>, <div class="grupo-formulario">, <label>, <input>, <select>, <option>, <textarea>, <button>)
-
-        <section>: Define una sección temática dentro del contenido principal.
-
-        <h2>: Encabezado de nivel 2 para subtitular la sección.
-
-        <p>: Define un párrafo de texto explicativo.
-
-        <form action="#" method="post">: Contenedor interactivo para la recolección de datos del usuario, configurado con el método HTTP de envío post.
-
-        <fieldset>: Agrupa lógicamente los campos relacionados dentro del formulario.
-
-        <legend>: Proporciona un título o leyenda descriptiva para cada grupo de campos (<fieldset>).
-
-        <div class="grupo-formulario">: Contenedor genérico para estructurar y separar visualmente cada campo con márgenes.
-
-        <label for="...">: Etiqueta de texto descriptiva asociada a un campo de formulario específico mediante su atributo for.
-
-        <input type="..." id="..." name="..." required>: Elemento interactivo principal de entrada de datos (soporta tipos como text, email, tel, radio, number, date, checkbox), aplicando validaciones nativas como required, minlength, maxlength o patrones pattern.
-
-        <select> y <option>: Crean un menú desplegable con opciones seleccionables de valor (value).
-
-        <textarea>: Campo de entrada de texto multilínea para comentarios largos, controlado por filas (rows), columnas (cols) y límite de caracteres (maxlength).
-
-        <button type="submit">: Botón interactivo para enviar la información del formulario.-->
-            <main>
-    <div class="contenedor-reservas">
-            <section class="seccion-formulario"> 
-        <h2>Formulario de reserva</h2>
-        <p>Completa el siguiente formulario para realizar tu reserva.</p>
-            
-    <form action="#" method="post">
-        
-        <fieldset>
-            <legend>Tus datos</legend>
-
-            <div class="grupo-formulario"> 
-                <label for="nombre">Nombre completo:</label> 
-                <input type="text" id="nombre" name="nombre" required minlength ="3">
-            </div>
-            <div class="grupo-formulario">
-                <label for="documento">Documento de identidad:</label>
-                <input type="text" id="documento" name="documento" required 
-                pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 
-                dígitos">
-            </div>
-        <div class="fila-formulario-doble">
-            <div class="grupo-formulario">
-                <label for="correo">Correo electrónico:</label>
-                <input type="email" id="correo" name="correo"
-                required>
-            </div>
-
-            <div class="grupo-formulario">
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" required pattern 
-                ="^3[0-9]{9}$" title="Solo números, entre 6 y 10 dígitos">
-            </div>
-        </div>   
-        </fieldset>
-
-        <fieldset>
-            <legend>Tu alquiler</legend>
-            <p>Selecciona el tipo de bicicleta
-            </p>
-            <div class="grupo-formulario">
-                <input type="radio" id="urbana" name="tipo_bici"
-                 value="urbana" checked>
-                <label for="urbana">Bicicleta urbana</label>
-            </div>
-            <div class="grupo-formulario">
-                <input type="radio" id="electrica" name="tipo_bici"
-                 value="electrica">
-                <label for="electrica">Bicicleta eléctrica</label>
-            </div>
-            <div class="grupo-formulario">
-                <label for="cantidad">Cantidad de bicicletas:</label>
-                <input type="number" id="cantidad" name="cantidad" 
-                required min="1" max="6" value="1">
-            </div>
-            <div class="grupo-formulario">
-                <label for="fecha">Fecha de reserva
-                </label>
-                <input type="date" 
-                id="fecha" name="fecha" required min ="2026-11-01" max="2026-12-31">
-            </div>
-           
-            <div class="grupo-formulario">
-                <label for="punto_recogida">Punto de recogida</label>
-                <select id="punto_recogida" name="punto_recogida" required>
-                    <option value="">Selecciona un punto</option>
-                    <option value="poblado">El Poblado</option>
-                    <option value="la_70">La 70(Estadio)</option>
-                    <option value="parques_del_rio">Parques del Río</option>
-                </select>
-            </div>
-        </fieldset>
-        <fieldset>
-    <legend>Confirmación</legend>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../img/logo.png">
     
-    <div class="grupo-formulario">
-        <label for="comentarios">Comentarios adicionales:</label><br>
-        <textarea id="comentarios" name="comentarios" rows="3" 
-        cols="30" max length ="300"></textarea>
-    </div>
+    <!-- Fuentes y CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">    
+</head>
+<body>
 
-    <div class="grupo-formulario">
-        <input type="checkbox" id="terminos" name="terminos" required>
-        <label for="terminos">Acepto los términos y condiciones *</label>
-    </div>
-</fieldset>
-<button type="submit" class="btn-cta">Enviar reserva</button>
-                </form>
-                </section>
-           
-<!--4. Información Complementaria y Horarios (<aside>, <dl>, <dt>, <dd>)
+    <!-- Encabezado y Navegación -->
+    <header>
+        <div class="logo-marca">
+            <h1>Reserva tu bicicleta</h1>
+            <img src="../img/logo.png" alt="Logo de Rueda Libre" width="100" height="100" class="img-logo"> 
+        </div>
+        <nav>
+            <ul id="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="tarifas.html">Tarifas y recorridos</a></li>
+                <li><a href="reservas.html" class="activo">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <aside>: Etiqueta semántica para contenido complementario o barras laterales (en este caso, los horarios de atención).
-
-        <dl>: Lista de descripciones (Definition List), ideal para parejas de términos y definiciones.
-
-        <dt>: Término o asunto a definir (ej. los días de la semana).
-
-        <dd>: Descripción o valor asociado al término anterior (ej. las horas de atención).-->
+    <!-- Contenido Principal -->
+    <main>
+        <!-- Contenedor Grid (Formulario 2fr / Contacto 1fr en escritorio) -->
+        <div class="contenedor-reservas">
             
-            <div class="contenedo-contacto">
-            <p>¿Tienes dudas? Escríbenos a 
-            nuestro correo electrónico: <a href="mailto:ruedalibre@example.com"
-            >ruedalibre@example.com</a></p>
-          <aside>
-            <h2>Horarios de atención</h2>
-            <dl>
-                <dt>Lunes a viernes</dt>
-                <dd>6:00 am - 8:00 pm</dd>
+            <!-- Sección del Formulario -->
+            <section class="seccion-formulario"> 
+                <h2>Formulario de reserva</h2>
+                <p>Completa el siguiente formulario para realizar tu reserva.</p>
+                
+                <form action="#" method="post">
+                    
+                    <!-- Fieldset: Tus datos -->
+                    <fieldset>
+                        <legend>Tus datos</legend>
 
-                <dt>Sábados</dt>
-                <dd>8:00 am - 7:00 pm</dd>
+                        <div class="grupo-formulario"> 
+                            <label for="nombre">Nombre completo:</label> 
+                            <input type="text" id="nombre" name="nombre" required minlength="3">
+                        </div>
 
-                <dt>Domingos y festivos</dt>
-                <dd>8:00 am - 5:00 pm</dd>
-            </dl>
-          </aside>
-          </div>
-    </div>
+                        <div class="grupo-formulario">
+                            <label for="documento">Documento de identidad:</label>
+                            <input type="text" id="documento" name="documento" required pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos">
+                        </div>
+
+                        <!-- Fila doble Flexbox: Correo y Teléfono -->
+                        <div class="fila-formulario-doble">
+                            <div class="grupo-formulario">
+                                <label for="correo">Correo electrónico:</label>
+                                <input type="email" id="correo" name="correo" required>
+                            </div>
+
+                            <div class="grupo-formulario">
+                                <label for="telefono">Teléfono:</label>
+                                <input type="tel" id="telefono" name="telefono" required pattern="^3[0-9]{9}$" title="Solo números, 10 dígitos iniciando en 3">
+                            </div>
+                        </div>   
+                    </fieldset>
+
+                    <!-- Fieldset: Tu alquiler -->
+                    <fieldset>
+                        <legend>Tu alquiler</legend>
+                        <p>Selecciona el tipo de bicicleta</p>
+                        
+                        <div class="grupo-formulario">
+                            <input type="radio" id="urbana" name="tipo_bici" value="urbana" checked>
+                            <label for="urbana">Bicicleta urbana</label>
+                        </div>
+                        
+                        <div class="grupo-formulario">
+                            <input type="radio" id="electrica" name="tipo_bici" value="electrica">
+                            <label for="electrica">Bicicleta eléctrica</label>
+                        </div>
+                        
+                        <div class="grupo-formulario">
+                            <label for="cantidad">Cantidad de bicicletas:</label>
+                            <input type="number" id="cantidad" name="cantidad" required min="1" max="6" value="1">
+                        </div>
+                        
+                        <div class="grupo-formulario">
+                            <label for="fecha">Fecha de reserva</label>
+                            <input type="date" id="fecha" name="fecha" required min="2026-11-01" max="2026-12-31">
+                        </div>
+                       
+                        <div class="grupo-formulario">
+                            <label for="punto_recogida">Punto de recogida</label>
+                            <select id="punto_recogida" name="punto_recogida" required>
+                                <option value="">Selecciona un punto</option>
+                                <option value="poblado">El Poblado</option>
+                                <option value="la_70">La 70 (Estadio)</option>
+                                <option value="parques_del_rio">Parques del Río</option>
+                            </select>
+                        </div>
+                    </fieldset>
+
+                    <!-- Fieldset: Confirmación -->
+                    <fieldset>
+                        <legend>Confirmación</legend>
+                        
+                        <div class="grupo-formulario">
+                            <label for="comentarios">Comentarios adicionales:</label><br>
+                            <textarea id="comentarios" name="comentarios" rows="3" cols="30" maxlength="300"></textarea>
+                        </div>
+
+                        <div class="grupo-formulario">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos">Acepto los términos y condiciones *</label>
+                        </div>
+                    </fieldset>
+
+                    <button type="submit" class="btn-cta">Enviar reserva</button>
+                </form>
+            </section>
+               
+            <!-- Bloque de Contacto y Horarios -->
+            <div class="bloque-contacto">
+                <p>¿Tienes dudas? Escríbenos a nuestro correo electrónico: <a href="mailto:ruedalibre@example.com">ruedalibre@example.com</a></p>
+                <aside>
+                    <h2>Horarios de atención</h2>
+                    <dl>
+                        <dt>Lunes a viernes</dt>
+                        <dd>6:00 am - 8:00 pm</dd>
+
+                        <dt>Sábados</dt>
+                        <dd>8:00 am - 7:00 pm</dd>
+
+                        <dt>Domingos y festivos</dt>
+                        <dd>8:00 am - 5:00 pm</dd>
+                    </dl>
+                </aside>
+            </div>
+
+        </div>
     </main>
-<!--5. Pie de Página y Enlace Flotante (<footer>, Atributos de Enlace)
 
-        <footer>: Etiqueta semántica para el pie de página institucional del sitio web.
+    <!-- Pie de Página y Botón Flotante -->
+    <footer>
+        <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">ruedalibre@example.com</a></p>
+    </footer>
 
-        &copy;: Entidad de caracteres especiales para mostrar el símbolo de copyright (©).
+    <a href="https://wa.me/573000000000" class="btn-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 
-        target="_blank": Atributo que abre el enlace externo en una pestaña nueva del navegador.
-
-        rel="noopener noreferrer": Medida de seguridad obligatoria para prevenir vulnerabilidades en pestañas nuevas.-->
-        <footer>
-    <p>&copy; 2026 Rueda Libre | Correo: <a href="mailto:ruedalibre@example.com">
-        ruedalibre@example.com</a></p>
-</footer>
-<a href="https://wa.me/573000000000" class="btn-whatsapp" 
-target="_blank" rel="noopener noreferrer">WhatsApp</a>
 </body>
 </html>

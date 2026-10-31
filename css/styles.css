@@ -1,41 +1,29 @@
-/*1. Variables Globales y Configuración Raíz (:root, Selector Universal)
-
-        :root: Pseudo-clase que representa la raíz del documento (<html>). Se usa para definir variables personalizadas (propiedades con --) que guardan colores, tipografías y espaciados reutilizables.
-
-        Selector universal (*) y pseudo-elementos (*::before, *::after): Aplica estilos a absolutamente todos los elementos de la página.
-
-        box-sizing: border-box: Modelo de caja que incluye el relleno (padding) y los bordes dentro del ancho y alto total, evitando que las cajas se desborden.
-
-        body: Define los estilos globales de la página (color de fondo, color de texto, tipografía, márgenes y un padding-bottom estratégico para que el botón flotante de WhatsApp no tape el contenido final).
-
-        Selector agrupado (h1, h2, h3, h4, h5, h6): Aplica la tipografía de títulos y color a todos los encabezados de forma unificada.*/
-        /* ========================================== */
+/* ========================================== */
 /* 1. VARIABLES Y CONFIGURACIÓN GLOBAL        */
 /* ========================================== */
 :root {
-    /* Colores oficiales de la marca */ 
     --color-verde: #1E7A4F;
     --color-naranja: #F39A2B;
     --color-azul: #14213D;
     --color-crema: #FAF6EF;
     --color-gris: #5B6470;
 
-    /* Tipografías con fuentes de respaldo */
     --font-titulo: 'Montserrat', sans-serif;
     --font-texto: 'Open Sans', sans-serif;
 
-    /* Escala de espaciado en rem */
-    --espacio-sm: 0.5rem;   /* 8px aprox */
-    --espacio-md: 1.0rem;   /* 16px aprox */
-    --espacio-lg: 2.0rem;   /* 32px aprox */
+    --espacio-sm: 0.5rem;
+    --espacio-md: 1.0rem;
+    --espacio-lg: 2.0rem;
 } 
 
-
-
-
-/* Reset universal para un cálculo de caja predecible */
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 body {
@@ -45,110 +33,41 @@ body {
     margin: 0;
     padding: var(--espacio-md);
     line-height: 1.6;
-    padding-bottom: 5rem; /* Espacio inferior para evitar que el botón de WhatsApp tape el contenido */
+    padding-bottom: 5rem;
 }
 
-/* Selector agrupado para aplicar la tipografía de títulos a todos los encabezados */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-titulo);
     color: var(--color-azul);
 }
 
-/*2. Layout y Estructura General (header, main, footer)
-
-        Selector múltiple (header, main, footer): Agrupa los contenedores principales de la página para limitar su ancho máximo (max-width: 75rem) y centrarlos automáticamente en la pantalla con márgenes laterales automáticos (margin-left: auto; margin-right: auto;).
-
-        header: Añade un espacio superior e inferior interno específico (padding) para separar el encabezado.*/
-        /* ========================================== */
-/* 2. LAYOUT (Estructura general)             */
+/* ========================================== */
+/* 2. LAYOUT Y ESTRUCTURA GENERAL             */
 /* ========================================== */
 header, 
 main, 
 footer {
-    max-width: 75rem;       /* Ancho máximo de contenedor (1200px) */
-    margin-left: auto;      /* Centrado horizontal automático */
+    max-width: 75rem;
+    margin-left: auto;
     margin-right: auto;     
     padding-left: var(--espacio-md);
     padding-right: var(--espacio-md);
-    display:flex; 
-    justify-content: space-between; /* Distribuye los bloques en fila de forma uniforme */
-    align-items: flex-start; /* Los alinea por la parte superior */
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: var(--espacio-md);
 }
 
 header {
-    max-width: 75rem;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: var(--espacio-md);
-    padding-bottom: var(--espacio-md);
-    display: flex;
-    justify-content: space-between; /* Empuja un hijo a la izquierda y otro a la derecha */
-    align-items: center; /* Los centra verticalmente entre sí */
-}
-
-/*3. Navegación y Encabezado (.logo-marca, nav ul, #menu a)
-
-        .logo-marca: Clase que utiliza Flexbox (display: flex) para apilar el título y el logo en columna (flex-direction: column) y centrarlos horizontalmente (align-items: center).
-
-        .img-logo: Fija el ancho del logotipo a 80px manteniendo su proporción con height: auto.
-
-        nav ul: Elimina las viñetas predeterminadas (list-style: none), quita márgenes/rellenos y organiza los elementos en fila horizontal centrados mediante display: flex y justify-content: center.
-
-        Selector por ID y etiqueta (#menu a): Estiliza los enlaces dentro del menú aplicando transiciones suaves de color.
-
-        Selector de clase combinada (#menu a.activo): Da un estilo visual diferenciado (texto verde y borde inferior) al enlace de la página actual.
-
-        Pseudo-clases de interacción (:hover y :focus): Controlan el cambio de color al pasar el cursor o al navegar mediante la tecla Tab del teclado (accesibilidad).
-        /* ========================================== */
-/* 3. NAVEGACIÓN Y ENCABEZADO                 */
-/* ========================================== */
-
-.portada-inicio {
-    display: grid; /* Convierte al contenedor en una cuadrícula bidimensional (filas y columnas).*/
-    grid-template-columns: 1fr 1fr; /* Dos columnas iguales que reparten el espacio */
-    align-items: center; /* Centra verticalmente el contenido de cada columna */
-    gap: var(--espacio-lg); /* separacion limpia  entre texto e imagen */
-    margin-bottom: var(--espacio-lg);
-}
-
-.portada-imagen img {
-    width: 100%; /* La imagen ocupa todo el ancho de su columna */
-    height: auto; /* Mantiene la proporción original */
-    border-radius: 8px; /* Bordes redondeados para suavizar la imagen */
-}
-
-.contenedor-grid-rutas {
-    display: grid; /* Convierte al contenedor en una cuadrícula bidimensional (filas y columnas).*/
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales que reparten el espacio */
-    gap: var(--espacio-md); /* Separa tanto las filas como las columnas de forma limpia y uniforme, usando tu variable de espaciado. */
-    margin-bottom: var(--espacio-lg);
-}
-
-.tarjeta-ruta {
-    background-color: #FFFFFF;
-    border: 1px solid rgba(20, 33, 61, 0.15);
-    border-radius: 8px;
     padding: var(--espacio-md);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    flex-direction: column; 
+    align-items: center;
 }
 
-.tarjeta-ruta img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.contenedor-reservas{
-display: grid;
-grid-template-columns: 2fr 1fr; /* Formulario toma 2 partes y el contacto 1 parte */
-gap: var(--espacio-lg); /* Espacio entre el formulario y la información de contacto */
-align-items: start; /* Alinea el contenido al inicio de la fila */
-}
-
-
-/* Contenedor del título y logo en columna y centrados */
+/* ========================================== */
+/* 3. NAVEGACIÓN Y COMPONENTES (MÓVIL BASE)   */
+/* ========================================== */
 .logo-marca {
     display: flex;
     flex-direction: column; 
@@ -158,14 +77,6 @@ align-items: start; /* Alinea el contenido al inicio de la fila */
     margin-bottom: var(--espacio-md);
 }
 
-.fila-formulario-doble {
-    display: flex;
-    gap: var(--espacio-md);
-}
-
-.fila-formulario-doble .grupo-formulario {
-    flex: 1; /* Cada grupo de formulario ocupa la misma proporción del espacio disponible */
-}
 .img-logo {
     width: 80px;  
     height: auto;
@@ -174,28 +85,18 @@ align-items: start; /* Alinea el contenido al inicio de la fila */
 .logo-marca h1 {
     margin: 0;
     font-size: 2.2rem;
-    color: var(--color-azul);
-    font-family: var(--font-titulo);
 }
 
-/* Estructura horizontal del menú */
 nav ul {
     list-style: none;     
     padding: 0;           
     margin: 0;            
     display: flex;        
-    justify-content: center; 
-    gap: var(--espacio-md); 
-    flex-wrap: wrap; /* Si la pantalla se encoge, los enlaces bajan de línea solos */
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-sm); 
 }
 
-.contenedor-grid-flota {
-    display:grid; /* Convierte al contenedor en una cuadrícula bidimensional (filas y columnas).*/
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--espacio-md) /*Separa tanto las filas como las columnas de forma limpia y uniforme, usando tu variable de espaciado.*/
-}
-
-/* Enlaces del menú principal */
 #menu a {
     color: var(--color-gris);
     text-decoration: none;
@@ -220,48 +121,100 @@ nav ul {
 }
 
 #menu a:focus {
-    background-color: rgba(30, 122, 79, 0.1); /* Fondo translúcido accesible al navegar con teclado */
+    background-color: rgba(30, 122, 79, 0.1);
     border-radius: 4px;
 }
 
+/* Secciones principales en columna para móvil */
+.portada-inicio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+}
 
-/*4. Componentes: Tarjetas, Etiquetas y Botón Flotante (.tarjeta-servicio, .tarjeta-destacada, .etiqueta-nuevo, .btn-whatsapp)
+.portada-imagen img {
+    border-radius: 8px;
+}
 
-        .tarjeta-servicio: Estiliza las tarjetas de servicios como contenedores con fondo blanco, bordes redondeados y una sombra suave (box-shadow).
+.contenedor-grid-rutas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+    margin-bottom: var(--espacio-lg);
+}
 
-        .tarjeta-destacada: Utiliza position: relative para convertirse en el contenedor ancla de elementos posicionados en su interior.
-
-        .etiqueta-nuevo: Utiliza position: absolute para fijarse exactamente en la esquina superior derecha (top y right) de la tarjeta destacada sin alterar el flujo del contenido.
-
-        .btn-whatsapp: Utiliza position: fixed junto con bottom y right para mantenerse flotando permanentemente en la esquina inferior derecha de la pantalla al hacer scroll, con un índice de capas elevado (z-index: 1000) para garantizar que siempre esté por encima de todo.
-
-        /* ========================================== */
-/* 4. COMPONENTES (Tarjetas, Etiquetas, WhatsApp)*/
-/* ========================================== */
-
-/* Tarjetas de servicios estándar */
-.tarjeta-servicio {
+.tarjeta-ruta {
     background-color: #FFFFFF;
     border: 1px solid rgba(20, 33, 61, 0.15);
     border-radius: 8px;
     padding: var(--espacio-md);
-    margin-bottom: var(--espacio-md);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    display:flex;
-    flex-direction:column;
 }
+
+.tarjeta-ruta img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 0 auto;    
+}
+
+.contenedor-reservas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+}
+
+/* Contenedor de Tarifas (Mobile-First: 1 columna) */
+.contenedor-tarifas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+    margin-bottom: var(--espacio-lg);
+    width: 100%;
+}
+
+.fila-formulario-doble {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+}
+
+.fila-formulario-doble .grupo-formulario {
+    flex: 1;
+}
+
+/* ========================================== */
+/* 4. COMPONENTES Y TARJETAS                  */
+/* ========================================== */
+.tarjeta-servicio {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(20, 33, 61, 0.15);
+    border-radius: 12px;
+    padding: var(--espacio-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tarjeta-servicio img {
+    width: 100%;           
+    height: auto;
+    display: block;         
+    margin: 0 auto;         
+    border-radius: 4px;
+}
+
+
 .tarjeta-servicio .btn-cta {
-
-margin-top:auto;/* El truco de Flexbox: absorbe todo el espacio libre superior y empuja el botón al fondo */
+    margin-top: auto;
 }
 
-
-/* Tarjeta destacada: POSICIONAMIENTO RELATIVE (Sirve de ancla para elementos absolutos internos) */
 .tarjeta-destacada {
     position: relative;
 }
 
-/* Etiqueta "Nuevo": POSICIONAMIENTO ABSOLUTE (Anclada a la esquina superior derecha sin alterar el flujo) */
 .etiqueta-nuevo {
     position: absolute;
     top: var(--espacio-md);
@@ -276,26 +229,19 @@ margin-top:auto;/* El truco de Flexbox: absorbe todo el espacio libre superior y
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.tarjeta-servicio img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-/* Botón flotante de WhatsApp: POSICIONAMIENTO FIXED (Permanente en la esquina inferior derecha) */
 .btn-whatsapp {
     position: fixed;
     bottom: 1.5rem;
     right: 1.5rem;
-    background-color: #25D366; /* Color oficial de WhatsApp */
+    background-color: #25D366;
     color: #FFFFFF;
     padding: 0.75rem 1.25rem;
-    border-radius: 50px; /* Estilo píldora */
+    border-radius: 50px;
     text-decoration: none;
     font-family: var(--font-titulo);
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    z-index: 1000; /* Asegura que flote por encima de cualquier otro elemento */
+    z-index: 1000;
     transition: background-color 0.3s ease;
 }
 
@@ -305,40 +251,31 @@ margin-top:auto;/* El truco de Flexbox: absorbe todo el espacio libre superior y
     outline: 3px solid var(--color-naranja);
 }
 
-/*5. Tablas y Formularios (table, input, select, textarea, .btn-cta)
-
-        table: Define un ancho del 100% y colapsa los bordes dobles de las celdas con border-collapse: collapse.
-
-        th: Estiliza las celdas de encabezado con el color institucional verde y texto blanco.
-
-        Selector agrupado (.grupo-formulario, form div): Organiza los márgenes inferiores de cada bloque de formulario.
-
-        Selector de atributos múltiples (input[type="text"], etc.): Estiliza de forma uniforme los campos de entrada estirándolos al 100% de su contenedor.
-
-        .btn-cta: Define el diseño reutilizable para los botones de llamada a la acción en todo el sitio web.
-
-        Pseudo-clases de foco (input:focus, etc.): Añaden un borde y contorno resaltado al interactuar con los campos mediante teclado.*/
 /* ========================================== */
 /* 5. TABLAS Y FORMULARIOS                    */
 /* ========================================== */
-
 table {
     width: 100%;
     border-collapse: collapse; 
     margin-top: var(--espacio-md);
     margin-bottom: var(--espacio-md);
+    font-size: 0.85rem;
+    tabe-layout: fixed;
 }
 
 th, td {
-    padding: var(--espacio-sm) var(--espacio-md); 
-    border: 1px solid rgba(20, 33, 61, 0.2); 
-    text-align: left; 
+    padding: 0.4rem 0.3rem;
+    border: 1px solid rgba(20, 33, 61, 0.2);
+    text-align: left;
+    word-break: break-word;
+    hyphens:auto;    
 }
 
 th {
     background-color: var(--color-verde); 
     color: #FFFFFF; 
     font-family: var(--font-titulo); 
+    font-size: 0.8rem;
 }
 
 .grupo-formulario, 
@@ -354,7 +291,6 @@ label {
     color: var(--color-gris);
 }
 
-/* Selector agrupado para estirar todos los campos del formulario al 100% */
 input[type="text"],
 input[type="email"],
 input[type="date"],
@@ -382,7 +318,6 @@ form input[type="submit"] {
     font-family: var(--font-titulo);
 }
 
-/* Botón de llamada a la acción (CTA) general */
 .btn-cta {
     background-color: var(--color-verde);
     color: #FFFFFF;
@@ -402,7 +337,6 @@ form input[type="submit"] {
     outline: 3px solid var(--color-naranja); 
 }
 
-/* Estados de foco interactivos para campos de entrada y accesibilidad */
 input:focus,
 select:focus,
 textarea:focus {
@@ -411,4 +345,77 @@ textarea:focus {
     border-color: var(--color-verde);
 }
 
+/* ========================================== */
+/* 6. MEDIA QUERIES (RESPONSIVO)              */
+/* ========================================== */
 
+/* Tablet (A partir de 768px) */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        gap: var(--espacio-md);
+    }
+    
+    .portada-inicio {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: var(--espacio-lg);
+    }
+    .contenedor-grid-rutas {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--espacio-md);
+    }
+
+    .fila-formulario-doble {
+        flex-direction: row;
+    }
+
+    .fila-formulario-doble .grupo-formulario {
+        flex: 1;
+    }
+}
+
+/* Escritorio (A partir de 1200px) */
+@media (min-width: 1200px) {
+    .contenedor-grid-rutas {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--espacio-md);
+    }
+
+    .contenedor-grid-flota {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--espacio-lg);
+        width: 100%;
+    }
+    .contenedor-reservas {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+
+    /* Las tablas de tarifas se acomodan en 2 columnas simétricas */
+    .contenedor-tarifas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: var(--espacio-lg);
+    }
+    .contenedor-tarifas > section {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .seccion-precios .btn-cta {
+        margin-top: auto;
+        align-self: flex-start;
+    }
+}

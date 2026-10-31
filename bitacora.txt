@@ -195,3 +195,19 @@ Registro de Bitácora - Semana 2: Cuadrícula Adaptable (Grid & Flexbox)
 6. **Pie de página (Footer):** 
    - *Técnica:* **Flexbox**. 
    - *Por qué:* Organiza los elementos institucionales y de contacto en una sola dirección horizontal, adaptándose eficientemente ante cambios de espacio.
+
+   ### Registro de Bitácora - MiniReto Mobile-First
+
+Apuntes de desarrollo: Corrección de errores visuales
+
+    En móviles pequeños (360px): Las tablas se desbordaban y corrían la página horizontalmente. Lo solucionamos aplicando table-layout: fixed y word-break: break-word, logrando que las celdas se ajusten al ancho de la pantalla y el texto baje de línea de forma ordenada sin romper nada.
+
+    En tablets (768px): La sección de rutas guiadas se veía muy estirada y con espacios disparejos en las tarjetas. Ajustamos la cuadrícula a dos columnas y centramos los elementos internos (imagen y textos) con Flexbox y márgenes automáticos para mantener una simetría perfecta a ambos lados.
+
+    En escritorio (1200px+):
+
+        En la flota, activamos el Grid de 3 columnas y alineamos las imágenes correctamente dentro de sus tarjetas para que no quedaran cargadas hacia un solo lado.
+
+        En tarifas, las dos tablas se veían desalineadas. Quitamos un texto sobrante que descompensaba la altura de la columna derecha, emparejamos ambas secciones con Grid y evitamos que el botón de reservar se estirara de más usando align-self: flex-start.
+
+
