@@ -210,4 +210,16 @@ Apuntes de desarrollo: Corrección de errores visuales
 
         En tarifas, las dos tablas se veían desalineadas. Quitamos un texto sobrante que descompensaba la altura de la columna derecha, emparejamos ambas secciones con Grid y evitamos que el botón de reservar se estirara de más usando align-self: flex-start.
 
+DIA 2 -SEMANA 2
 
+Tiempo invertido: 15 minutos en total para configurar el CDN, estructurar el HTML y aplicar las clases de la grilla.
+
+Cantidad de código:
+
+    Versión anterior (CSS propio): Requería escribir reglas de Flexbox o Grid personalizadas, además de media queries manuales para cada tamaño de pantalla (360px, 768px, 1200px).
+
+    Versión con Bootstrap: 0 líneas de CSS propio. Toda la estructura de columnas y espacios se resolvió únicamente con clases utilitarias en el HTML (container, row, col-*, g-4).
+
+Lo que Bootstrap me dio sin esfuerzo: Un sistema responsivo completo e inmediato en todos los tamaños de pantalla (móvil, tablet, escritorio) sin tener que calcular anchos de columnas ni escribir consultas de medios (media queries).
+
+El control que perdí: Al usar las clases nativas por defecto de Bootstrap, dependes estrictamente de sus puntos de quiebre (breakpoints) y medidas preconfiguradas, lo que quita flexibilidad si se necesita un diseño con medidas altamente personalizadas.
