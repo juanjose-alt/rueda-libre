@@ -223,3 +223,38 @@ Cantidad de código:
 Lo que Bootstrap me dio sin esfuerzo: Un sistema responsivo completo e inmediato en todos los tamaños de pantalla (móvil, tablet, escritorio) sin tener que calcular anchos de columnas ni escribir consultas de medios (media queries).
 
 El control que perdí: Al usar las clases nativas por defecto de Bootstrap, dependes estrictamente de sus puntos de quiebre (breakpoints) y medidas preconfiguradas, lo que quita flexibilidad si se necesita un diseño con medidas altamente personalizadas.
+
+
+Sección de beneficios y franja de llamada a la acción (Bootstrap 5.3)
+
+    Beneficios ("¿Por qué Rueda Libre?"): Armamos la sección usando la estructura de grilla de Bootstrap (container, row y col). Centramos el título con text-center y distribuimos los cuatro beneficios en tarjetas adaptables que se acomodan solas en 2 o 4 columnas según la pantalla. Usamos clases de espaciado y tarjetas limpias sin tocar ni una sola línea de CSS propio.
+
+    Franja de llamada a la acción ("¿Listo para rodar?"):
+
+        Usamos un contenedor flexible (d-flex) con un fondo oscuro y esquinas redondeadas.
+
+        Logramos que el diseño cambie de dirección automáticamente: se pone en columna vertical para celulares (flex-column) y salta a fila horizontal desde las pantallas medianas en adelante (flex-md-row).
+
+        Agregamos una imagen decorativa que desaparece en teléfonos (d-none) y aparece mágicamente en tablets y escritorios (d-md-block).
+
+        Disfrazamos un enlace normal para que parezca un botón llamativo usando puras utilidades de Bootstrap de color, relleno (px y py), bordes en forma de píldora (rounded-pill) y una sombra sutil.
+
+        
+
+        ### Registro de Conflictos y Resolución (Bootstrap 5.3 vs Estilos Propios)
+
+1. **Conflicto de Normalización de Cajas (`box-sizing`):**
+   - **Problema:** El núcleo de Bootstrap (`reboot.scss`) y nuestro archivo personalizado intentaban declarar simultáneamente la propiedad global `box-sizing: border-box`.
+   - **Solución:** Se resolvió de manera natural gracias a la cascada de CSS y el orden de carga en el `<head>` (cargando nuestro `styles-bootstrap.css` después de Bootstrap), logrando que nuestras reglas base prevalecieran sin necesidad de usar `!important`.
+
+2. **Conflicto de Tipografía y Colores Base (`body`):**
+   - **Problema:** Bootstrap intentaba imponer sus propias fuentes por defecto, tamaños de texto y colores estándar en todo el documento (`_reboot.scss`).
+   - **Solución:** Gracias a la precedencia de nuestro archivo de estilos cargado al final, nuestras variables globales de tipografía (`var(--font-texto)`) y color corporativo (`var(--color-azul)`) sobrescribieron limpiamente las propiedades base de Bootstrap.
+
+3. **Conflicto de Espaciado y Alineación en Tarjetas de Flota:**
+   - **Problema:** Los párrafos `<p>` de Bootstrap aplican un margen inferior (`margin-bottom: 1rem`) por defecto que alteraba el espaciado interno de las tarjetas y desalineaba los botones de reserva.
+   - **Solución:** Se estructuró el contenedor de las tarjetas con clases flexibles (`d-flex flex-column`) y se implementó la clase utilitaria `mt-auto` en los precios y botones para forzar su alineación simétrica en la parte inferior de forma limpia.
+
+
+
+   

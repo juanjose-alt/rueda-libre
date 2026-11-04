@@ -260,7 +260,7 @@ table {
     margin-top: var(--espacio-md);
     margin-bottom: var(--espacio-md);
     font-size: 0.85rem;
-    tabe-layout: fixed;
+    table-layout: fixed;
 }
 
 th, td {

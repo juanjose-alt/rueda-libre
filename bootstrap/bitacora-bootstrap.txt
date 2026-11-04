@@ -1,0 +1,242 @@
+---
+
+# 📋 Bitácora de Proyecto: Rueda Libre
+
+---
+## 0. Nota sobre mi proceso y el uso de la IA en este proyecto
+
+Durante el desarrollo de la versión 1.0 de Rueda Libre, decidí usar la Inteligencia Artificial no como un atajo para que me hiciera el trabajo, sino como un compañero de estudio y tutor personal.
+
+En lugar de copiar y pegar código sin saber qué pasaba, mi enfoque fue entender cada concepto a fondo. Cada vez que me tropezaba con un problema —ya fuera un enredo con la especificidad de los selectores en el menú, un detalle con el posicionamiento de las etiquetas o la validación del formulario—, la idea era descifrar el por qué de las cosas.
+
+Usé esta herramienta para debatir, revisar mis errores, entender cómo funcionan realmente el modelo de caja o las normas de accesibilidad, y construir cada línea de código de forma consciente. Este proyecto refleja horas de prueba, error, aprendizaje y el esfuerzo genuino por sacar adelante la versión 1.0 por cuenta propia.
+
+## 1. Información General y Diagnóstico
+
+* **URL Base:** `[http://127.0.0.1:5500/rueda-libre/index.html](http://127.0.0.1:5500/rueda-libre/index.html)`
+* **Protocolo / Host:** HTTP/1.1 | Host: `127.0.0.1` | Puerto: `5500`
+* **Estado de Conexión:**
+* `index.html` $\rightarrow$ **304 Not Modified** (Caché actualizada).
+* `/rueda-libre/promociones.html` $\rightarrow$ **404 Not Found** (Ruta no encontrada).
+
+
+
+---
+
+## 2. Funciones de las Tecnologías Web
+
+* **HTML (HyperText Markup Language):** Define la estructura y el contenido (títulos, párrafos, imágenes, enlaces y formularios).
+* **CSS (Cascading Style Sheets):** Controla la apariencia visual (colores, tipografías, márgenes, distribución y diseño adaptable).
+* **JavaScript:** Agrega interactividad y comportamientos dinámicos (selección de bicicletas, cálculo de precios por horas).
+
+---
+
+## 3. Matriz de Rutas y Arquitectura del Sitio
+
+### Estructura de Secciones (`<header>`, `<main>`, `<footer>`)
+
+```text
+┌───────────────────────────────────────────────┐
+│ <header> (Nombre del negocio + <nav> menú)    │
+├───────────────────────────────────────────────┤
+│ <main> (Contenido principal de la página)     │
+│    ├── <section> (Bloques temáticos)          │
+│    │      └── <article> (Servicios individuales)│
+│    └── <aside> (Información complementaria)   │
+├───────────────────────────────────────────────┤
+│ <footer> (Pie de página / Copyright)          │
+└───────────────────────────────────────────────┘
+
+```
+
+### Tabla de Enlaces y Rutas Relativas (`href`)
+
+| Archivo de Origen | Archivo de Destino | Ruta escrita en el `href` |
+| --- | --- | --- |
+| `index.html` | `index.html` | `index.html` |
+| `index.html` | `tarifas.html` | `paginas/tarifas.html` |
+| `index.html` | `reservas.html` | `paginas/reservas.html` |
+| `paginas/tarifas.html` | `index.html` | `../index.html` |
+| `paginas/tarifas.html` | `tarifas.html` | `tarifas.html` |
+| `paginas/tarifas.html` | `reservas.html` | `reservas.html` |
+| `paginas/reservas.html` | `index.html` | `../index.html` |
+| `paginas/reservas.html` | `tarifas.html` | `tarifas.html` |
+| `paginas/reservas.html` | `reservas.html` | `reservas.html` |
+
+---
+
+## 4. Correcciones Técnicas en `reservas.html`
+
+1. **Atributo `minlength`:** Corrección del error tipográfico `minlenght="3"` al estándar HTML5 `minlength="3"`.
+2. **Validación de Celular (Regex):** Actualización del patrón a `pattern="^3[0-9]{9}$"` para exigir exactamente 10 dígitos iniciando en el número 3.
+3. **Opciones de Radio:** Estandarización de `id="electrica"` y `value="electrica"` para concordancia con la etiqueta.
+4. **Cierre de Etiquetas:** Incorporación del cierre faltante `</select>` en el punto de recogida.
+5. **Área de Texto:** Corrección del atributo `maxlength="300"` dentro de la etiqueta `<textarea>`.
+6. **Distribución de Bloques:** Uso de contenedores `<div>` independientes para forzar un salto de línea vertical limpio en elementos de selección y términos.
+
+---
+
+## 5. Auditoría de Accesibilidad y Contraste de Colores
+
+| Combinación Evaluada | Relación de Contraste | Clasificación Oficial |
+| --- | --- | --- |
+| **Blanco** sobre *Verde Ruta* (`#1E7A4F`) | ~4.8:1 | Apta para texto normal |
+| **Blanco** sobre *Naranja Pedal* (`#F39A2B`) | ~2.3:1 | No apta (contraste bajo) |
+| **Azul Noche** (`#14213D`) sobre *Naranja Pedal* (`#F39A2B`) | ~5.2:1 | Apta para texto normal |
+| **Azul Noche** (`#14213D`) sobre *Crema* (`#FAF6EF`) | ~14.5:1 | Apta para texto normal (Excelente) |
+| **Gris Asfalto** (`#5B6470`) sobre *Crema* (`#FAF6EF`) | ~4.6:1 | Apta para texto normal |
+| **Verde Ruta** (`#1E7A4F`) sobre *Crema* (`#FAF6EF`) | ~3.2:1 | Apta solo para texto grande / títulos |
+| **Naranja Pedal** (`#F39A2B`) sobre *Crema* (`#FAF6EF`) | ~2.1:1 | No apta |
+| **Blanco** sobre *Azul Noche* (`#14213D`) | ~15.0:1 | Apta para texto normal |
+
+---
+
+## 6. Conceptos Técnicos y Pruebas en DevTools
+
+* **Herencia en CSS:**
+* **Sí se hereda:** `color` y `font-family` (verificado en párrafos `<p>` heredando desde `<body>`).
+* **No se hereda:** `margin` y `background-color` (los hijos manejan valores propios o del navegador).
+
+
+* **Especificidad (Mini-Reto 10):**
+* Conflicto: Selector `#menu a` (Especificidad: 101) sobrepasaba a `.activo` (Especificidad: 10).
+* Solución: Combinación de selectores `#menu a.activo` (Puntuación: 111) garantizando accesibilidad de enfoque (`:focus` y `:hover` con contornos visibles).
+
+
+* **Medición de `box-sizing`:**
+* *Sin box-sizing (`content-box`):* El ancho sumaba padding y bordes por separado, causando desbordamientos.
+* *Con `box-sizing: border-box`:* Las dimensiones totales calculan el relleno y bordes hacia adentro, manteniendo un ancho predecible.
+
+
+
+---
+
+## 7. Resumen de Lanzamiento (Versión 1.0)
+
+### Fases Completadas de la Semana
+
+* **Estructura y Semántica HTML:** Creación multipágina y uso riguroso de etiquetas semánticas (`header`, `nav`, `main`, `section`, `article`, `footer`).
+* **Estilos Globales y Modelo de Caja:** Configuración de variables `:root`, tipografías (*Montserrat* y *Open Sans*) y reset universal con `box-sizing: border-box`.
+* **Componentes, Tablas y Formularios:** Diseño de tarjetas, tablas de precios y campos agrupados en formularios con validación nativa.
+* **Posicionamiento y Lanzamiento (v1.0):**
+* Uso de `relative` en tarjetas y `absolute` para fijar la etiqueta "Nuevo" sin alterar el flujo.
+* Uso de `fixed` para mantener el botón flotante de WhatsApp visible al hacer scroll.
+* Pruebas de accesibilidad con teclado (`Tab`), control de versiones en Git y despliegue en GitHub Pages.
+
+
+
+### Propuestas de Mejora Futura
+
+* Implementar un menú de navegación adaptable (tipo menú hamburguesa) para pantallas móviles pequeñas.
+* Añadir validación avanzada mediante JavaScript para mejorar la retroalimentación al enviar formularios.
+
+
+
+---
+
+### Registro de Bitácora - Semana 2: Día 1
+
+* **Observación de comportamiento responsivo:** Al reducir el ancho de la ventana 
+del navegador (simulando pantallas de dispositivos móviles o aplicando zoom), el 
+contenedor principal del encabezado (`<header>`), que utiliza `display: flex` con 
+`justify-content: space-between`, mantiene inicialmente el nombre/logo a la 
+izquierda y el menú de navegación a la derecha.
+
+* **Efecto del salto de línea:** A medida que el espacio horizontal se reduce y 
+los elementos ya no caben en una sola línea, la propiedad `flex-wrap: wrap` 
+aplicada al contenedor de la lista (`nav ul`) interviene de manera controlada. 
+En lugar de desbordar la pantalla o romper el diseño horizontal, el bloque de 
+navegación desciende de forma ordenada y se ubica debajo del logo y el título 
+principal, adaptándose al formato vertical de una sola columna sin perder la 
+separación limpia generada por la propiedad `gap`.
+
+---
+
+
+Registro de Bitácora - Semana 2: Cuadrícula Adaptable (Grid & Flexbox)
+
+    Comportamiento de la cuadrícula con CSS Grid: Se implementó grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) en la sección de la flota, logrando un diseño completamente responsivo y fluido sin necesidad de media queries.
+
+    Prueba de columnas a distintos anchos (Modo Dispositivo):
+
+        1280 px: Se visualizan 3 columnas distribuidas uniformemente.
+
+        900 px: La cuadrícula se reorganiza automáticamente a 2 columnas.
+
+        500 px: El diseño se adapta a 1 sola columna, priorizando la legibilidad en pantallas móviles.
+
+    Alineación interna con Flexbox: Al convertir cada tarjeta en un contenedor de columna flexible (flex-direction: column) y aplicar margin-top: auto al botón "Reservar", se logró que todas las tarjetas de una misma fila mantengan una altura uniforme y sus botones queden perfectamente alineados en la parte inferior, sin importar la longitud de las descripciones.
+
+    Escalabilidad: Se añadió el séptimo modelo ("Tándem") comprobando que la cuadrícula se reorganiza por sí sola sin modificar las reglas de CSS.
+
+
+### Registro de Bitácora - Semana 2: Elección de Layout (Grid vs. Flexbox)
+
+1. **Encabezado (Header):** 
+   - *Técnica:* **Flexbox**. 
+   - *Por qué:* Es una estructura unidimensional para alinear el logo a un extremo y el menú de navegación al otro (`space-between`), manteniendo los elementos centrados verticalmente en una sola línea.
+
+2. **Portada de Inicio (Hero):** 
+   - *Técnica:* **Grid**. 
+   - *Por qué:* Requiere dividir el macro-layout de la página en dos dimensiones (columnas proporcionales `1fr 1fr`) para acomodar el bloque de texto y la imagen de bienvenida de manera estructurada.
+
+3. **Galería "Nuestras rutas":** 
+   - *Técnica:* **Grid**. 
+   - *Por qué:* Se necesita una cuadrícula fija de 3 columnas (`repeat(3, 1fr)`) para distribuir las tarjetas de las rutas de manera uniforme y simétrica en una fila de escritorio.
+
+4. **Sección de Reservas (Formulario y Contacto):** 
+   - *Técnica:* **Grid**. 
+   - *Por qué:* Controla el diseño general de la vista en dos dimensiones con proporciones asimétricas específicas (`2fr` para el formulario principal y `1fr` para la información de contacto).
+
+5. **Fila doble del formulario (Correo y Teléfono):** 
+   - *Técnica:* **Flexbox**. 
+   - *Por qué:* Es un componente interno y lineal (una sola fila) donde los campos cortos deben distribuirse horizontalmente de manera flexible (`flex: 1`).
+
+6. **Pie de página (Footer):** 
+   - *Técnica:* **Flexbox**. 
+   - *Por qué:* Organiza los elementos institucionales y de contacto en una sola dirección horizontal, adaptándose eficientemente ante cambios de espacio.
+
+   ### Registro de Bitácora - MiniReto Mobile-First
+
+Apuntes de desarrollo: Corrección de errores visuales
+
+    En móviles pequeños (360px): Las tablas se desbordaban y corrían la página horizontalmente. Lo solucionamos aplicando table-layout: fixed y word-break: break-word, logrando que las celdas se ajusten al ancho de la pantalla y el texto baje de línea de forma ordenada sin romper nada.
+
+    En tablets (768px): La sección de rutas guiadas se veía muy estirada y con espacios disparejos en las tarjetas. Ajustamos la cuadrícula a dos columnas y centramos los elementos internos (imagen y textos) con Flexbox y márgenes automáticos para mantener una simetría perfecta a ambos lados.
+
+    En escritorio (1200px+):
+
+        En la flota, activamos el Grid de 3 columnas y alineamos las imágenes correctamente dentro de sus tarjetas para que no quedaran cargadas hacia un solo lado.
+
+        En tarifas, las dos tablas se veían desalineadas. Quitamos un texto sobrante que descompensaba la altura de la columna derecha, emparejamos ambas secciones con Grid y evitamos que el botón de reservar se estirara de más usando align-self: flex-start.
+
+DIA 2 -SEMANA 2
+
+Tiempo invertido: 15 minutos en total para configurar el CDN, estructurar el HTML y aplicar las clases de la grilla.
+
+Cantidad de código:
+
+    Versión anterior (CSS propio): Requería escribir reglas de Flexbox o Grid personalizadas, además de media queries manuales para cada tamaño de pantalla (360px, 768px, 1200px).
+
+    Versión con Bootstrap: 0 líneas de CSS propio. Toda la estructura de columnas y espacios se resolvió únicamente con clases utilitarias en el HTML (container, row, col-*, g-4).
+
+Lo que Bootstrap me dio sin esfuerzo: Un sistema responsivo completo e inmediato en todos los tamaños de pantalla (móvil, tablet, escritorio) sin tener que calcular anchos de columnas ni escribir consultas de medios (media queries).
+
+El control que perdí: Al usar las clases nativas por defecto de Bootstrap, dependes estrictamente de sus puntos de quiebre (breakpoints) y medidas preconfiguradas, lo que quita flexibilidad si se necesita un diseño con medidas altamente personalizadas.
+
+
+Sección de beneficios y franja de llamada a la acción (Bootstrap 5.3)
+
+    Beneficios ("¿Por qué Rueda Libre?"): Armamos la sección usando la estructura de grilla de Bootstrap (container, row y col). Centramos el título con text-center y distribuimos los cuatro beneficios en tarjetas adaptables que se acomodan solas en 2 o 4 columnas según la pantalla. Usamos clases de espaciado y tarjetas limpias sin tocar ni una sola línea de CSS propio.
+
+    Franja de llamada a la acción ("¿Listo para rodar?"):
+
+        Usamos un contenedor flexible (d-flex) con un fondo oscuro y esquinas redondeadas.
+
+        Logramos que el diseño cambie de dirección automáticamente: se pone en columna vertical para celulares (flex-column) y salta a fila horizontal desde las pantallas medianas en adelante (flex-md-row).
+
+        Agregamos una imagen decorativa que desaparece en teléfonos (d-none) y aparece mágicamente en tablets y escritorios (d-md-block).
+
+        Disfrazamos un enlace normal para que parezca un botón llamativo usando puras utilidades de Bootstrap de color, relleno (px y py), bordes en forma de píldora (rounded-pill) y una sombra sutil.
+
+        

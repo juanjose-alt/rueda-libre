@@ -1,0 +1,362 @@
+/* ========================================== */
+/* 1. VARIABLES Y CONFIGURACIÓN GLOBAL        */
+/* ========================================== */
+:root {
+    --color-verde: #1E7A4F;
+    --color-naranja: #F39A2B;
+    --color-azul: #14213D;
+    --color-crema: #FAF6EF;
+    --color-gris: #5B6470;
+
+    --font-titulo: 'Montserrat', sans-serif;
+    --font-texto: 'Open Sans', sans-serif;
+
+    --espacio-sm: 0.5rem;
+    --espacio-md: 1.0rem;
+    --espacio-lg: 2.0rem;
+} 
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    background-color: var(--color-crema);
+    color: var(--color-azul);
+    font-family: var(--font-texto);
+    margin: 0;
+    padding: var(--espacio-md);
+    line-height: 1.6;
+    padding-bottom: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titulo);
+    color: var(--color-azul);
+}
+
+/* ========================================== */
+/* 2. LAYOUT Y ESTRUCTURA GENERAL             */
+/* ========================================== */
+header, 
+main, 
+footer {
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;     
+    padding-left: var(--espacio-md);
+    padding-right: var(--espacio-md);
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--espacio-md);
+}
+
+header {
+    padding: var(--espacio-md);
+    flex-direction: column; 
+    align-items: center;
+}
+
+/* ========================================== */
+/* 3. NAVEGACIÓN Y COMPONENTES (MÓVIL BASE)   */
+/* ========================================== */
+.logo-marca {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;     
+    gap: var(--espacio-sm); 
+    margin-bottom: var(--espacio-md);
+}
+
+.img-logo {
+    width: 80px;  
+    height: auto;
+}
+
+.logo-marca h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+nav ul {
+    list-style: none;     
+    padding: 0;           
+    margin: 0;            
+    display: flex;        
+    flex-direction: column;
+    align-items: center;
+    gap: var(--espacio-sm); 
+}
+
+#menu a {
+    color: var(--color-gris);
+    text-decoration: none;
+    padding: var(--espacio-sm) var(--espacio-md);
+    display: inline-block;
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#menu a.activo {
+    color: var(--color-verde);
+    font-weight: 600;
+    border-bottom: 2px solid var(--color-verde);
+} 
+
+#menu a:hover,
+#menu a:focus {
+    color: var(--color-verde);
+    outline: none; 
+    text-decoration: underline;
+}
+
+#menu a:focus {
+    background-color: rgba(30, 122, 79, 0.1);
+    border-radius: 4px;
+}
+
+/* Contenedores exclusivos para páginas secundarias (Tarifas y Reservas) */
+.contenedor-reservas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+}
+
+.contenedor-tarifas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-lg);
+    margin-bottom: var(--espacio-lg);
+    width: 100%;
+}
+
+.fila-formulario-doble {
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacio-md);
+}
+
+.fila-formulario-doble .grupo-formulario {
+    flex: 1;
+}
+
+/* ========================================== */
+/* 4. COMPONENTES Y TARJETAS                  */
+/* ========================================== */
+.tarjeta-servicio {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(20, 33, 61, 0.15);
+    border-radius: 12px;
+    padding: var(--espacio-md);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.tarjeta-servicio img {
+    width: 100%;           
+    height: auto;
+    display: block;         
+    margin: 0 auto;         
+    border-radius: 4px;
+}
+
+.tarjeta-servicio .btn-cta {
+    margin-top: auto;
+}
+
+.tarjeta-destacada {
+    position: relative;
+}
+
+.etiqueta-nuevo {
+    position: absolute;
+    top: var(--espacio-md);
+    right: var(--espacio-md);
+    background-color: var(--color-verde);
+    color: #FFFFFF;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border-radius: 4px;
+    font-family: var(--font-titulo);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-whatsapp {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: #25D366;
+    color: #FFFFFF;
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+    background-color: #1EBE5D;
+    outline: 3px solid var(--color-naranja);
+}
+
+/* ========================================== */
+/* 5. TABLAS Y FORMULARIOS                    */
+/* ========================================== */
+table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: var(--espacio-md);
+    margin-bottom: var(--espacio-md);
+    font-size: 0.85rem;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 0.4rem 0.3rem;
+    border: 1px solid rgba(20, 33, 61, 0.2);
+    text-align: left;
+    word-break: break-word;
+    hyphens:auto;    
+}
+
+th {
+    background-color: var(--color-verde); 
+    color: #FFFFFF; 
+    font-family: var(--font-titulo); 
+    font-size: 0.8rem;
+}
+
+.grupo-formulario, 
+form div {
+    margin-bottom: var(--espacio-md);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--espacio-sm);
+    font-family: var(--font-titulo);
+    font-weight: bold;
+    color: var(--color-gris);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--espacio-sm);
+    border: 1px solid rgba(20, 33, 61, 0.2);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+}
+
+form button,
+form input[type="submit"] {
+    padding: var(--espacio-md) var(--espacio-lg);
+    background-color: var(--color-verde);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: var(--font-titulo);
+}
+
+.btn-cta {
+    background-color: var(--color-verde);
+    color: #FFFFFF;
+    padding: var(--espacio-sm) var(--espacio-md);
+    border-radius: 4px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: var(--font-titulo);
+    transition: background-color 0.3s ease;
+    margin-top: var(--espacio-sm);
+    margin-bottom: var(--espacio-sm);
+}
+
+.btn-cta:hover,
+.btn-cta:focus {
+    background-color: #155d3c; 
+    outline: 3px solid var(--color-naranja); 
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid var(--color-verde);
+    background-color: #FFFFFF;
+    border-color: var(--color-verde);
+}
+
+/* ========================================== */
+/* 6. MEDIA QUERIES (RESPONSIVO)              */
+/* ========================================== */
+
+/* Tablet (A partir de 768px) */
+@media (min-width: 768px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        gap: var(--espacio-md);
+    }
+    
+    .fila-formulario-doble {
+        flex-direction: row;
+    }
+
+    .fila-formulario-doble .grupo-formulario {
+        flex: 1;
+    }
+}
+
+/* Escritorio (A partir de 1200px) */
+@media (min-width: 1200px) {
+    .contenedor-reservas {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        align-items: start;
+    }
+
+    /* Las tablas de tarifas se acomodan en 2 columnas simétricas */
+    .contenedor-tarifas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        gap: var(--espacio-lg);
+    }
+    .contenedor-tarifas > section {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .seccion-precios .btn-cta {
+        margin-top: auto;
+        align-self: flex-start;
+    }
+}
