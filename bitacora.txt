@@ -257,4 +257,136 @@ Sección de beneficios y franja de llamada a la acción (Bootstrap 5.3)
 
 
 
-   
+   ### Informe Comparativo Final: Rueda Libre v1.5 vs v2.0-beta (Bootstrap 5.3)
+
+======================================================================
+
+         BITÁCORA DE DESARROLLO - RUEDA LIBRE (v2.0-beta)
+
+======================================================================
+
+
+
+Proyecto: Migración a Bootstrap 5.3 y limpieza de código
+
+Desarrollador: Proyecto Individual / Nodo Digital
+
+Fecha: Noviembre 2026
+
+
+
+----------------------------------------------------------------------
+
+1. ¿REALMENTE VALIÓ LA PENA EL CAMBIO? (COMPARATIVA DE DATOS)
+
+----------------------------------------------------------------------
+
+
+
+La respuesta corta es sí. Reduje el código a la mitad y maqueté mucho más rápido.
+
+
+
+* Líneas en styles.css:
+
+  - En la v1.5 (CSS puramente mío): tenía unas 350 líneas cargadas de grillas manuales y reglas responsivas hechas a mano.
+
+  - En la v2.0-beta (con Bootstrap): bajé a unas 180 líneas. Logré reducir casi un 48% del CSS propio.
+
+
+
+* Tiempo de trabajo:
+
+  - En la v1.5 me tomó unas 8 horas ajustar cada breakpoint y pelear con la maquetación manualmente.
+
+  - Con Bootstrap me tomó unas 3.5 horas migrar las 3 páginas (Inicio, Tarifas y Reservas). Ahorré un 56% de mi tiempo.
+
+
+
+* Adaptabilidad responsiva:
+
+  Probé el sitio a 360px (celulares), 768px (tablets) y 1280px (escritorio) y ahora fluye perfecto. Cero desbordamiento lateral.
+
+
+
+
+
+----------------------------------------------------------------------
+
+2. CONFLICTOS QUE CAZÓ CON DEVTOOLS Y CÓMO LOS RESOLVÍ
+
+----------------------------------------------------------------------
+
+
+
+No todo fue pegar clases de Bootstrap y ya. Al abrir las DevTools (F12) encontré 3 choques entre el framework y mis reglas, los cuales resolví usando la cascada sin meter jamás un !important:
+
+
+
+1. El box-sizing duplicado:
+
+   Tanto el Reboot de Bootstrap como mi CSS querían controlar el box-sizing: border-box. 
+
+   -> Solución: En las DevTools me di cuenta de que al cargar mi styles.css DESPUÉS del CDN de Bootstrap en el <head>, mis reglas ganaban limpiamente la partida por orden de llegada.
+
+
+
+2. Las fuentes y colores base del Body:
+
+   Bootstrap quería poner sus tipografías por defecto y sus tonos neutros (vi las líneas tachadas en el inspector).
+
+   -> Solución: Dejé que mi CSS sobrescribiera las variables de fuente (--font-texto de Open Sans) y el color corporativo (--color-azul). La marca de Rueda Libre se mantuvo intacta.
+
+
+
+3. Botones y precios desalineados en las tarjetas:
+
+   En la flota de bicicletas, el margin-bottom de los párrafos que pone Bootstrap por defecto hacía que unas tarjetas se vieran más largas que otras según el texto.
+
+   -> Solución: Usé cajas flexibles (d-flex flex-column) y le puse mt-auto al bloque del precio/botón. Eso empujó los botones al fondo de forma alineada sin importar qué tan largo fuera el texto.
+
+
+
+
+
+----------------------------------------------------------------------
+
+3. PROS Y CONTRAS QUE OBSERVÉ
+
+----------------------------------------------------------------------
+
+
+
+Lo bueno (Pros):
+
+- El HTML me quedó muy fácil de leer. Crear la estructura 8/4 en Reservas y las 2 columnas en Tarifas fue volando con col-md-8 y col-md-4.
+
+- Las validaciones nativas del formulario (required, min, max, patterns de teléfono y cédula) siguieron funcionando perfecto sin que Bootstrap estorbara.
+
+- Las tablas las dejé limpias y responsivas usando .table-responsive sin perder mi estilo verde original.
+
+
+
+Lo no tan bueno (Contras):
+
+- Dependo de que el CDN de Bootstrap cargue bien para que el sitio no se desconfigure.
+
+- Tengo que estar muy atento al orden del <head> en cada HTML para que los estilos de mi marca no se pierdan.
+
+
+
+
+
+----------------------------------------------------------------------
+
+4. CONCLUSIÓN FINAL
+
+----------------------------------------------------------------------
+
+
+
+La migración a Bootstrap 5.3 fue un acierto técnico total para el proyecto. Me quitó el dolor de cabeza de mantener grillas personalizadas en CSS y me permitió enfocar styles.css únicamente en la personalidad visual de Rueda Libre (colores, fuentes y detalles de componentes).
+
+
+
+Tengo la versión v2.0-beta probada en los 3 anchos requeridos, limpia de código basura y lista para subir a GitHub Pages.
